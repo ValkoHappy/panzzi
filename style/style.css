@@ -167,6 +167,32 @@ section {
   transform: translateX(-50%);
 }
 
+/* Language Switcher */
+.language-switcher {
+  position:absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.lang-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 50px;
+  text-align: center;
+}
+
+.lang-btn:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -1368,7 +1394,7 @@ footer {
   }
 
   .contact-item {
-    padding: 15px 20px;
+    padding: 15px 10px;
   }
 
   .service-icon {

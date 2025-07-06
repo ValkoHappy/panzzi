@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="supported-languages" content="ru, en" />
     <title>PANZZi - Премиум мебель и материалы из Китая</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,9 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
+<div class="language-switcher">
+  <button id="language-toggle" class="lang-btn" data-lang="ru">RU</button>
+</div>
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-slider">
@@ -45,39 +49,40 @@
           <h1 class="logo">PANZZi</h1>
           <div class="hero-slogan">
             <div class="slogan-line">
-              <span class="slogan-item">Мебель</span>
+              <span class="slogan-item" data-translate="hero-furniture"
+                >Мебель</span
+              >
               <span class="slogan-divider">•</span>
-              <span class="slogan-item">Свет</span>
+              <span class="slogan-item" data-translate="hero-lighting"
+                >Свет</span
+              >
               <span class="slogan-divider">•</span>
-              <span class="slogan-item">Посуда</span>
+              <span class="slogan-item" data-translate="hero-tableware"
+                >Посуда</span
+              >
               <span class="slogan-divider">•</span>
-              <span class="slogan-item">Материалы для интерьера</span>
+              <span class="slogan-item" data-translate="hero-materials"
+                >Материалы для интерьера</span
+              >
             </div>
-            <div class="slogan-description">
+            <div class="slogan-description" data-translate="hero-description">
               Оснащаем рестораны, отели, виллы под ключ
             </div>
           </div>
           <div class="hero-buttons">
             <a href="https://wa.me/yournumber" class="btn"
-              ><i class="fab fa-whatsapp"></i> WhatsApp</a
+              ><i class="fab fa-whatsapp"></i>
+              <span data-translate="whatsapp">WhatsApp</span></a
             >
             <a href="https://t.me/yourusername" class="btn btn-outline"
-              ><i class="fab fa-telegram"></i> Telegram</a
+              ><i class="fab fa-telegram"></i>
+              <span data-translate="telegram">Telegram</span></a
             >
           </div>
           <div class="social-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
           </div>
-          <!-- <div class="qr-container">
-            <span class="qr-text">WeChat</span>
-            <div class="qr-code">
-              <img
-                src="http://qrcoder.ru/code/?WeChat&4&0"
-                alt="WeChat QR Code"
-              />
-            </div>
-          </div> -->
         </div>
       </div>
       <div class="scroll-down">
@@ -88,27 +93,25 @@
     <!-- About Section -->
     <section class="about" id="about">
       <div class="container">
-        <span class="section-subtitle text-center">О компании</span>
+        <span
+          class="section-subtitle text-center"
+          data-translate="section-about"
+          >О компании</span
+        >
         <h2 class="section-title text-center">PANZZi</h2>
         <div class="about-content">
           <div class="about-text">
-            <p>
-              PANZZi — поставщик мебели, света, посуды и строительных материалов
-              из Китая. Наша компания сочетает в себе многолетний опыт и
-              инновационный подход к созданию интерьеров.
-            </p>
-            <p>
-              Мы оснащаем рестораны, кафе, магазины, отели, виллы и частные
-              дома, предлагая как комплексные решения под ключ, так и отдельные
-              элементы интерьера.
-            </p>
-            <p>
-              С более чем 20-летним опытом в ресторанной и мебельной индустрии,
-              мы гарантируем качество, надежность и индивидуальный подход к
-              каждому проекту.
+            <p data-translate="about-text-1">
+              Мы — команда с 20-летним опытом в F&B сфере. Этот опыт помогает нам
+              не просто поставлять мебель, посуду, свет и строительные
+              материалы, но и глубоко понимать, чего действительно хотят наши
+              клиенты. Мы знаем, как важно подобрать правильное решение, которое
+              будет не только красиво выглядеть, но и работать на ваш бизнес.
             </p>
             <div style="margin-top: 30px">
-              <a href="#contacts" class="btn">Связаться с нами</a>
+              <a href="#contacts" class="btn" data-translate="contact-us"
+                >Связаться с нами</a
+              >
             </div>
           </div>
           <div class="about-image">
@@ -117,56 +120,65 @@
         </div>
       </div>
     </section>
-
     <!-- Services Section -->
-<section class="services" id="services">
-  <div class="container">
-    <span class="section-subtitle text-center">Наши услуги</span>
-    <h2 class="section-title text-center">Что мы делаем</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <div class="service-icon"><i class="fas fa-utensils"></i></div>
-        <h3 class="service-title">Поставка посуды</h3>
-        <p class="service-description">Эксклюзивные коллекции посуды для ресторанов и кафе</p>
-        <button class="btn btn-gallery" data-gallery="dishes">
-          Смотреть
-        </button>
+    <section class="services" id="services">
+      <div class="container">
+        <span class="section-subtitle text-center">Наши услуги</span>
+        <h2 class="section-title text-center">Что мы делаем</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <div class="service-icon"><i class="fas fa-utensils"></i></div>
+            <h3 class="service-title">Поставка посуды</h3>
+            <p class="service-description">
+              Эксклюзивные коллекции посуды для ресторанов и кафе
+            </p>
+            <button class="btn btn-gallery" data-gallery="dishes">
+              Смотреть
+            </button>
+          </div>
+          <div class="service-item">
+            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+            <h3 class="service-title">Освещение</h3>
+            <p class="service-description">
+              Дизайнерские световые решения для любого пространства
+            </p>
+            <button class="btn btn-gallery" data-gallery="lighting">
+              Смотреть
+            </button>
+          </div>
+          <div class="service-item">
+            <div class="service-icon"><i class="fas fa-couch"></i></div>
+            <h3 class="service-title">Мебель</h3>
+            <p class="service-description">
+              Эргономичная мебель для бизнеса и дома
+            </p>
+            <button class="btn btn-gallery" data-gallery="furniture">
+              Смотреть
+            </button>
+          </div>
+          <div class="service-item">
+            <div class="service-icon"><i class="fas fa-tools"></i></div>
+            <h3 class="service-title">Материалы для интерьера</h3>
+            <p class="service-description">
+              Высококачественные отделочные материалы
+            </p>
+            <button class="btn btn-gallery" data-gallery="materials">
+              Смотреть
+            </button>
+          </div>
+          <div class="service-item">
+            <div class="service-icon"><i class="fas fa-home"></i></div>
+            <h3 class="service-title">Проекты под ключ</h3>
+            <p class="service-description">
+              Полный цикл работ от концепции до реализации
+            </p>
+            <button class="btn btn-gallery" data-gallery="turnkey_projects">
+              Смотреть
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="service-item">
-        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-        <h3 class="service-title">Освещение</h3>
-        <p class="service-description">Дизайнерские световые решения для любого пространства</p>
-        <button class="btn btn-gallery" data-gallery="lighting">
-          Смотреть
-        </button>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><i class="fas fa-couch"></i></div>
-        <h3 class="service-title">Мебель</h3>
-        <p class="service-description">Эргономичная мебель для бизнеса и дома</p>
-        <button class="btn btn-gallery" data-gallery="furniture">
-          Смотреть
-        </button>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><i class="fas fa-tools"></i></div>
-        <h3 class="service-title">Стройматериалы</h3>
-        <p class="service-description">Высококачественные отделочные материалы</p>
-        <button class="btn btn-gallery" data-gallery="materials">
-          Смотреть
-        </button>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><i class="fas fa-home"></i></div>
-        <h3 class="service-title">Проекты под ключ</h3>
-        <p class="service-description">Полный цикл работ от концепции до реализации</p>
-        <button class="btn btn-gallery" data-gallery="turnkey_projects">
-          Смотреть
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Gallery Modal -->
     <div id="gallery-modal" class="modal">
@@ -587,5 +599,7 @@
       </div>
     </footer>
     <script src="js/scripts.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/translations_scripts.js"></script>
   </body>
 </html>

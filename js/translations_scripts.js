@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function updateToggleButton(lang) {
     const toggleBtn = document.getElementById('language-toggle');
-    toggleBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+    toggleBtn.textContent = lang === 'ru' ? 'RU' : 'EN';
     toggleBtn.setAttribute('data-lang', lang);
   }
 });

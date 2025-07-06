@@ -49,6 +49,7 @@
 .delay-5 {
   animation-delay: 1s;
 }
+
 :root {
   --color-bg: #f4f5f7;
   --color-dark: #1a1a1a;
@@ -422,6 +423,7 @@ section {
   background-color: var(--color-white);
   position: relative;
   overflow: hidden;
+  padding: 80px 0;
 }
 
 .services::before {
@@ -431,15 +433,15 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/imgs/fon.png") center/cover no-repeat;
+  background: url("https://github.com/ValkoHappy/panzzi/blob/main/imgs/fon2.png?raw=true") center/cover no-repeat;
   opacity: 0.3;
   z-index: 0;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
   margin-top: 70px;
   z-index: 1;
 }
@@ -453,6 +455,9 @@ section {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.05);
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Добавлено для одинаковой высоты */
 }
 
 .service-item:hover {
@@ -471,6 +476,201 @@ section {
   margin-bottom: 15px;
 }
 
+.service-description {
+  margin-bottom: 25px;
+  flex-grow: 1; /* Добавлено для выравнивания кнопок */
+}
+
+/* Gallery Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  overflow: hidden; /* Изменено с auto на hidden */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+}
+
+.gallery-modal-content {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  height: 90vh;
+  max-height: 700px;
+  margin: 5vh auto;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1002;
+}
+
+.modal-header {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 15px;
+  background: white;
+}
+
+.close-modal {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.main-gallery-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  overflow: hidden; /* Добавлено */
+}
+
+.main-gallery-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active-gallery-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  height: auto;
+  width: auto;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-prev {
+  left: 20px;
+}
+
+.gallery-next {
+  right: 20px;
+}
+
+.gallery-thumbnails-container {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+  overflow: hidden; /* Добавлено */
+}
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden; /* Добавлено */
+  padding-bottom: 5px;
+  height: 100%;
+  align-items: center; /* Добавлено для выравнивания по вертикали */
+}
+
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  min-width: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.thumbnail:hover {
+  border-color: var(--color-accent);
+}
+
+.thumbnail.active {
+  border-color: var(--color-accent-dark);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .gallery-modal-content {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .modal-header {
+    height: 60px;
+  }
+  
+  .close-modal {
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+  }
+  
+  .gallery-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .gallery-thumbnails-container {
+    height: 80px;
+    padding: 10px;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 60px;
+    min-width: 80px;
+  }
+  
+  .mobile-close-btn {
+    display: block;
+  }
+}
 /* Projects Section */
 .projects {
   background-color: var(--color-white);
@@ -592,7 +792,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/imgs/fon2.png") center/cover no-repeat;
+  background: url("https://github.com/ValkoHappy/panzzi/blob/main/imgs/fon.png?raw=true") center/cover no-repeat;
   opacity: 0.3;
   z-index: 0;
 }
@@ -1055,10 +1255,15 @@ footer {
     font-size: 2.2rem;
   }
 
-  .contact-methods,
+  .contact-methods {
+    margin-top: 0px; 
+    grid-template-columns: repeat(2, 1fr);
+    gap:10px;
+  }
+
   .services-grid {
-    grid-template-columns: 1fr;
-    margin-top: 0px;
+    margin-top: 0px; 
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .project-info {
@@ -1163,7 +1368,7 @@ footer {
   }
 
   .contact-item {
-    padding: 25px 20px;
+    padding: 15px 20px;
   }
 
   .service-icon {

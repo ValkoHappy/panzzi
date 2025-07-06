@@ -54,8 +54,7 @@
               <span class="slogan-item">Материалы для интерьера</span>
             </div>
             <div class="slogan-description">
-              Оснащаем рестораны, кафе, отели, магазины,<br />
-              виллы и частные дома под ключ
+              Оснащаем рестораны, отели, виллы под ключ
             </div>
           </div>
           <div class="hero-buttons">
@@ -113,50 +112,83 @@
             </div>
           </div>
           <div class="about-image">
-            <img
-              src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-              alt="О PANZZi"
-            />
+            <img src="content/Mockaps/2.jpg" alt="О PANZZi" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-      <div class="container">
-        <span class="section-subtitle text-center">Наши услуги</span>
-        <h2 class="section-title text-center">Что мы делаем</h2>
-        <div class="services-grid">
-          <div class="service-item">
-            <div class="service-icon"><i class="fas fa-utensils"></i></div>
-            <h3 class="service-title">Поставка посуды</h3>
-            <p>Эксклюзивные коллекции посуды для ресторанов и кафе</p>
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-subtitle text-center">Наши услуги</span>
+    <h2 class="section-title text-center">Что мы делаем</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon"><i class="fas fa-utensils"></i></div>
+        <h3 class="service-title">Поставка посуды</h3>
+        <p class="service-description">Эксклюзивные коллекции посуды для ресторанов и кафе</p>
+        <button class="btn btn-gallery" data-gallery="dishes">
+          Смотреть
+        </button>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3 class="service-title">Освещение</h3>
+        <p class="service-description">Дизайнерские световые решения для любого пространства</p>
+        <button class="btn btn-gallery" data-gallery="lighting">
+          Смотреть
+        </button>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fas fa-couch"></i></div>
+        <h3 class="service-title">Мебель</h3>
+        <p class="service-description">Эргономичная мебель для бизнеса и дома</p>
+        <button class="btn btn-gallery" data-gallery="furniture">
+          Смотреть
+        </button>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fas fa-tools"></i></div>
+        <h3 class="service-title">Стройматериалы</h3>
+        <p class="service-description">Высококачественные отделочные материалы</p>
+        <button class="btn btn-gallery" data-gallery="materials">
+          Смотреть
+        </button>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fas fa-home"></i></div>
+        <h3 class="service-title">Проекты под ключ</h3>
+        <p class="service-description">Полный цикл работ от концепции до реализации</p>
+        <button class="btn btn-gallery" data-gallery="turnkey_projects">
+          Смотреть
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="modal">
+      <div class="modal-overlay"></div>
+      <div class="gallery-modal-content">
+        <div class="modal-header">
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="main-gallery-container">
+          <div class="main-gallery-slide">
+            <img src="" alt="Service Image" class="active-gallery-image" />
           </div>
-          <div class="service-item">
-            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-            <h3 class="service-title">Освещение</h3>
-            <p>Дизайнерские световые решения для любого пространства</p>
-          </div>
-          <div class="service-item">
-            <div class="service-icon"><i class="fas fa-couch"></i></div>
-            <h3 class="service-title">Мебель</h3>
-            <p>Эргономичная мебель для бизнеса и дома</p>
-          </div>
-          <div class="service-item">
-            <div class="service-icon"><i class="fas fa-tools"></i></div>
-            <h3 class="service-title">Стройматериалы</h3>
-            <p>Высококачественные отделочные материалы</p>
-          </div>
-          <div class="service-item">
-            <div class="service-icon"><i class="fas fa-home"></i></div>
-            <h3 class="service-title">Проекты под ключ</h3>
-            <p>Полный цикл работ от концепции до реализации</p>
+          <button class="gallery-nav gallery-prev">&#10094;</button>
+          <button class="gallery-nav gallery-next">&#10095;</button>
+        </div>
+        <div class="gallery-thumbnails-container">
+          <div class="gallery-thumbnails">
+            <!-- Thumbnails will be inserted here by JavaScript -->
           </div>
         </div>
       </div>
-    </section>
-
+    </div>
     <!-- Projects Section -->
     <section class="projects" id="projects">
       <div class="container">
@@ -477,7 +509,7 @@
       <div class="container">
         <span class="section-subtitle text-center">Свяжитесь с нами</span>
         <h2 class="section-title text-center">Контакты</h2>
-        <div class="contacts-container  animate fade-in delay-2">
+        <div class="contacts-container animate fade-in delay-2">
           <p>
             Свяжитесь с нами через удобный для вас мессенджер или социальную
             сеть. Мы ответим в кратчайшие сроки и поможем с вашим проектом.
@@ -488,14 +520,14 @@
               <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
               <h3 class="contact-title">WhatsApp</h3>
               <a href="https://wa.me/yournumber" class="contact-link"
-                >Написать в WhatsApp</a
+                >Написать</a
               >
             </div>
             <div class="contact-item">
               <div class="contact-icon"><i class="fab fa-telegram"></i></div>
               <h3 class="contact-title">Telegram</h3>
               <a href="https://t.me/yourusername" class="contact-link"
-                >Написать в Telegram</a
+                >Написать</a
               >
             </div>
             <div class="contact-item">
@@ -508,7 +540,7 @@
             <div class="contact-item">
               <div class="contact-icon"><i class="fab fa-weixin"></i></div>
               <h3 class="contact-title">WeChat</h3>
-              <a href="#" class="contact-link">Отсканируйте QR-код</a>
+              <a href="#" class="contact-link">Отсканируйте</a>
             </div>
           </div>
         </div>
@@ -520,10 +552,7 @@
         <div class="footer-content">
           <div class="footer-about">
             <div class="footer-logo">PANZZi</div>
-            <p>
-              Оснащение ресторанов, кафе, магазинов, отелей, вилл, частных
-              домов, поставка стройматериалов из Китая под ключ.
-            </p>
+            <p>Оснащение ресторанов, отелей, вилл, из Китая под ключ.</p>
           </div>
 
           <div class="footer-links">

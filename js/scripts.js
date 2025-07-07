@@ -32,6 +32,7 @@ document.querySelector(".scroll-down").addEventListener("click", () => {
 
 // Modal functionality
 let bodyScrollPosition = 0;
+let currentVideoElement = null;
 
 function openModal(modalId) {
   bodyScrollPosition = window.scrollY;
@@ -43,6 +44,12 @@ function openModal(modalId) {
 }
 
 function closeModal(modalId) {
+  // Останавливаем видео перед закрытием
+  if (currentVideoElement) {
+    currentVideoElement.pause();
+    currentVideoElement = null;
+  }
+  
   document.getElementById(modalId).style.display = "none";
   document.body.style.position = "";
   document.body.style.top = "";
@@ -58,12 +65,22 @@ document.querySelectorAll(".show-modal").forEach((button) => {
 
 document.querySelectorAll(".close-modal").forEach((span) => {
   span.addEventListener("click", function () {
+    // Останавливаем видео перед закрытием
+    if (currentVideoElement) {
+      currentVideoElement.pause();
+      currentVideoElement = null;
+    }
     closeModal(this.closest(".modal").id);
   });
 });
 
 window.addEventListener("click", function (event) {
   if (event.target.classList.contains("modal")) {
+    // Останавливаем видео перед закрытием
+    if (currentVideoElement) {
+      currentVideoElement.pause();
+      currentVideoElement = null;
+    }
     closeModal(event.target.id);
   }
 });
@@ -113,6 +130,41 @@ const galleryData = {
     { src: "content/services/turnkey_projects/photo_4_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 4" },
     { src: "content/services/turnkey_projects/photo_5_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 5" },
   ],
+   lazy_bar: [
+    { src: "content/projects/lazy_bar/photo_1_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 1" },
+    { src: "content/projects/lazy_bar/photo_2_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 2" },
+    { src: "content/projects/lazy_bar/photo_3_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 3" },
+    { src: "content/projects/lazy_bar/photo_4_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 4" },
+    { src: "content/projects/lazy_bar/photo_5_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 5" },
+    { src: "content/projects/lazy_bar/photo_6_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 6" },
+    { src: "content/projects/lazy_bar/photo_7_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 7" },
+    { src: "content/projects/lazy_bar/photo_8_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 8" },
+    { src: "content/projects/lazy_bar/photo_9_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 9" },
+  ],
+  mom_restaurant: [
+    { src: "content/projects/mom_restaurant/photo_1_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 1" },
+    { src: "content/projects/mom_restaurant/photo_2_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 2" },
+    { src: "content/projects/mom_restaurant/photo_3_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 3" },
+    { src: "content/projects/mom_restaurant/photo_4_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 4" },
+    { src: "content/projects/mom_restaurant/photo_5_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 5" },
+    { src: "content/projects/mom_restaurant/photo_6_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 6" },
+    { src: "content/projects/mom_restaurant/photo_7_2025-07-07_12-59-31.jpg", alt: "MOM ресторан 7" },
+  ],
+  panzzi_showroom: [
+    { src: "content/projects/panzzi_showroom/photo_1_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 1" },
+    { src: "content/projects/panzzi_showroom/photo_2_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 2" },
+    { src: "content/projects/panzzi_showroom/photo_3_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 3" },
+    { src: "content/projects/panzzi_showroom/photo_4_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 4" },
+    { src: "content/projects/panzzi_showroom/photo_5_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 5" },
+    { src: "content/projects/panzzi_showroom/photo_6_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 6" },
+    { src: "content/projects/panzzi_showroom/photo_7_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 7" },
+    { src: "content/projects/panzzi_showroom/photo_8_2025-07-07_13-00-12.jpg", alt: "Showroom Panzzi 8" },
+  ],
+  villa_project: [
+    { src: "content/projects/villa_project/villa_project1.jpg", alt: "Вилла 2" },
+    { src: "content/projects/villa_project/PalmParadise.mp4", alt: "Вилла 1", type: "video" },
+    { src: "content/projects/villa_project/villa_project_video1.MOV", alt: "Вилла 2", type: "video" },
+  ]
 };
 
 // Gallery functionality
@@ -122,29 +174,57 @@ let currentGalleryImages = [];
 function initGallery(galleryKey) {
   currentGalleryImages = galleryData[galleryKey] || [];
   currentGalleryIndex = 0;
+  currentVideoElement = null;
 
-  const mainImage = document.querySelector(".active-gallery-image");
+  const mainGallerySlide = document.querySelector(".main-gallery-slide");
   const thumbnailsContainer = document.querySelector(".gallery-thumbnails");
 
-  // Clear previous thumbnails
+  // Clear previous content
+  mainGallerySlide.innerHTML = '';
   thumbnailsContainer.innerHTML = "";
 
   if (currentGalleryImages.length === 0) {
-    mainImage.src = "";
-    mainImage.alt = "Нет изображений";
+    const noContent = document.createElement('div');
+    noContent.textContent = "Нет контента для отображения";
+    mainGallerySlide.appendChild(noContent);
     return;
   }
 
-  // Set main image
-  updateMainImage();
+  // Set main content (image or video)
+  updateMainContent();
 
   // Create thumbnails
-  currentGalleryImages.forEach((img, index) => {
-    const thumbnail = document.createElement("img");
-    thumbnail.src = img.src;
-    thumbnail.alt = img.alt;
+  currentGalleryImages.forEach((item, index) => {
+    const thumbnail = document.createElement("div");
     thumbnail.classList.add("thumbnail");
     if (index === 0) thumbnail.classList.add("active");
+
+    if (item.type === "video") {
+      // Video thumbnail
+      const videoThumb = document.createElement("video");
+      videoThumb.src = item.src;
+      videoThumb.muted = true;
+      videoThumb.loop = true;
+      videoThumb.playsInline = true;
+      videoThumb.addEventListener('loadeddata', () => {
+        videoThumb.currentTime = 0;
+      });
+      videoThumb.addEventListener('seeked', () => {
+        videoThumb.play().catch(e => {});
+      });
+      thumbnail.appendChild(videoThumb);
+      
+      // Add video icon
+      const videoIcon = document.createElement("i");
+      videoIcon.className = "fas fa-video thumbnail-video-icon";
+      thumbnail.appendChild(videoIcon);
+    } else {
+      // Image thumbnail
+      const imgThumb = document.createElement("img");
+      imgThumb.src = item.src;
+      imgThumb.alt = item.alt;
+      thumbnail.appendChild(imgThumb);
+    }
 
     thumbnail.addEventListener("click", () => {
       updateGallery(index);
@@ -154,30 +234,58 @@ function initGallery(galleryKey) {
   });
 }
 
-function updateMainImage() {
-  const mainImage = document.querySelector(".active-gallery-image");
-  const currentImage = currentGalleryImages[currentGalleryIndex];
+function updateMainContent() {
+  const mainGallerySlide = document.querySelector(".main-gallery-slide");
+  const currentItem = currentGalleryImages[currentGalleryIndex];
 
-  // Add loading state
-  mainImage.src = "";
-  mainImage.alt = "Загрузка...";
+  // Clear previous content
+  mainGallerySlide.innerHTML = '';
 
-  const img = new Image();
-  img.src = currentImage.src;
-  img.alt = currentImage.alt;
+  // Stop current video if exists
+  if (currentVideoElement) {
+    currentVideoElement.pause();
+    currentVideoElement = null;
+  }
 
-  img.onload = () => {
-    mainImage.src = currentImage.src;
-    mainImage.alt = currentImage.alt;
-    centerActiveThumbnail();
-  };
+  if (currentItem.type === "video") {
+    // Create video element
+    const video = document.createElement("video");
+    video.src = currentItem.src;
+    video.controls = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.classList.add("active-gallery-video");
+    
+    // Add video icon
+    const videoIcon = document.createElement("i");
+    videoIcon.className = "fas fa-video gallery-video-icon";
+    mainGallerySlide.appendChild(videoIcon);
+    
+    mainGallerySlide.appendChild(video);
+    currentVideoElement = video;
+  } else {
+    // Create image
+    const img = new Image();
+    img.src = currentItem.src;
+    img.alt = currentItem.alt;
+    img.classList.add("active-gallery-image");
+    mainGallerySlide.appendChild(img);
+  }
+
+  centerActiveThumbnail();
 }
 
 function updateGallery(index) {
   const thumbnails = document.querySelectorAll(".thumbnail");
 
+  // Stop current video before switching
+  if (currentVideoElement) {
+    currentVideoElement.pause();
+    currentVideoElement = null;
+  }
+
   currentGalleryIndex = index;
-  updateMainImage();
+  updateMainContent();
 
   thumbnails.forEach((thumb, i) => {
     thumb.classList.toggle("active", i === index);
@@ -201,11 +309,21 @@ function centerActiveThumbnail() {
 }
 
 // Initialize gallery buttons
-document.querySelectorAll(".btn-gallery").forEach((button) => {
-  button.addEventListener("click", function () {
-    const galleryKey = this.getAttribute("data-gallery");
+function handleGalleryOpen(element) {
+  const galleryKey = element.getAttribute("data-gallery");
+  if (galleryKey) {
     initGallery(galleryKey);
     openModal("gallery-modal");
+  }
+}
+
+// Initialize gallery buttons and links
+document.querySelectorAll(".btn-gallery, a[data-gallery]").forEach((element) => {
+  element.addEventListener("click", function(e) {
+    if (element.tagName.toLowerCase() === "a") {
+      e.preventDefault();
+    }
+    handleGalleryOpen(this);
   });
 });
 
@@ -224,7 +342,7 @@ document.querySelector(".gallery-next").addEventListener("click", () => {
 
 // Keyboard navigation
 document.addEventListener("keydown", function (e) {
-  if (document.getElementById("gallery-modal").style.display === "block") {
+  if (document.getElementById("gallery-modal").style.display === "flex") {
     if (e.key === "ArrowLeft") {
       const newIndex =
         (currentGalleryIndex - 1 + currentGalleryImages.length) %
@@ -234,6 +352,11 @@ document.addEventListener("keydown", function (e) {
       const newIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
       updateGallery(newIndex);
     } else if (e.key === "Escape") {
+      // Stop video before closing
+      if (currentVideoElement) {
+        currentVideoElement.pause();
+        currentVideoElement = null;
+      }
       closeModal("gallery-modal");
     }
   }
@@ -241,12 +364,15 @@ document.addEventListener("keydown", function (e) {
 
 // Close modal when clicking outside
 document.querySelector(".modal-overlay").addEventListener("click", () => {
+  // Stop video before closing
+  if (currentVideoElement) {
+    currentVideoElement.pause();
+    currentVideoElement = null;
+  }
   closeModal("gallery-modal");
 });
 
 // Prevent closing when clicking inside modal
-document
-  .querySelector(".gallery-modal-content")
-  .addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
+document.querySelector(".gallery-modal-content").addEventListener("click", (e) => {
+  e.stopPropagation();
+});

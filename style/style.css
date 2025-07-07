@@ -517,7 +517,7 @@ section {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
-  overflow: hidden; /* Изменено с auto на hidden */
+  overflow: hidden;
 }
 
 .modal-overlay {
@@ -552,6 +552,7 @@ section {
   justify-content: flex-end;
   padding: 0 15px;
   background: white;
+  border-bottom: 1px solid #eee;
 }
 
 .close-modal {
@@ -567,6 +568,11 @@ section {
   align-items: center;
   justify-content: center;
   z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--color-accent);
 }
 
 .main-gallery-container {
@@ -576,7 +582,7 @@ section {
   align-items: center;
   justify-content: center;
   background: #f5f5f5;
-  overflow: hidden; /* Добавлено */
+  overflow: hidden;
 }
 
 .main-gallery-slide {
@@ -585,14 +591,38 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
-.active-gallery-image {
+.active-gallery-image,
+.active-gallery-video {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   height: auto;
   width: auto;
+}
+
+.active-gallery-video {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.gallery-video-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 2;
 }
 
 .gallery-nav {
@@ -611,6 +641,11 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.gallery-nav:hover {
+  background: rgba(0,0,0,0.9);
 }
 
 .gallery-prev {
@@ -625,27 +660,51 @@ section {
   padding: 15px;
   background: white;
   border-top: 1px solid #eee;
-  overflow: hidden; /* Добавлено */
+  overflow: hidden;
 }
 
 .gallery-thumbnails {
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  overflow-y: hidden; /* Добавлено */
+  overflow-y: hidden;
   padding-bottom: 5px;
   height: 100%;
-  align-items: center; /* Добавлено для выравнивания по вертикали */
+  align-items: center;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) #eee;
+}
+
+.gallery-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 3px;
 }
 
 .thumbnail {
+  position: relative;
   width: 120px;
   height: 80px;
   min-width: 120px;
-  object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
   transition: all 0.3s ease;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.thumbnail img,
+.thumbnail video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .thumbnail:hover {
@@ -654,6 +713,21 @@ section {
 
 .thumbnail.active {
   border-color: var(--color-accent-dark);
+}
+
+.thumbnail-video-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
 }
 
 /* Mobile styles */
@@ -693,8 +767,18 @@ section {
     min-width: 80px;
   }
   
-  .mobile-close-btn {
-    display: block;
+  .gallery-video-icon {
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+  
+  .thumbnail-video-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
   }
 }
 /* Projects Section */
@@ -726,7 +810,7 @@ section {
 }
 
 .project-image {
-  height: 450px;
+      height: 100%;
   overflow: hidden;
 }
 
@@ -802,6 +886,81 @@ section {
 
 .project-link:hover i {
   transform: translateX(5px);
+}
+
+/* Дополнительные стили для проектов */
+.project-category {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.project-title {
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.project-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.project-feature {
+  transition: all 0.3s ease;
+}
+
+.project-feature:hover {
+  transform: translateX(5px);
+}
+
+.project-feature i {
+  transition: transform 0.3s ease;
+}
+
+.project-feature:hover i {
+  transform: scale(1.2);
+}
+/* Дополнительные стили для проектов */
+.project-category {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.project-title {
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.project-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.project-feature {
+  transition: all 0.3s ease;
+}
+
+.project-feature:hover {
+  transform: translateX(5px);
+}
+
+.project-feature i {
+  transition: transform 0.3s ease;
+}
+
+.project-feature:hover i {
+  transform: scale(1.2);
 }
 
 /* Why Choose Us Section */

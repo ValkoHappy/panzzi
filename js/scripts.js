@@ -170,6 +170,7 @@ const galleryData = {
 // Gallery functionality
 let currentGalleryIndex = 0;
 let currentGalleryImages = [];
+const VIDEO_VOLUME_LEVEL = 0.03;
 
 function initGallery(galleryKey) {
   currentGalleryImages = galleryData[galleryKey] || [];
@@ -200,12 +201,13 @@ function initGallery(galleryKey) {
     if (index === 0) thumbnail.classList.add("active");
 
     if (item.type === "video") {
-      // Video thumbnail
+      // Видео превью
       const videoThumb = document.createElement("video");
       videoThumb.src = item.src;
-      videoThumb.muted = true;
+      videoThumb.muted = true; // Превью всегда без звука
       videoThumb.loop = true;
       videoThumb.playsInline = true;
+      videoThumb.volume = 0; // На всякий случай отключаем звук
       videoThumb.addEventListener('loadeddata', () => {
         videoThumb.currentTime = 0;
       });
@@ -214,12 +216,12 @@ function initGallery(galleryKey) {
       });
       thumbnail.appendChild(videoThumb);
       
-      // Add video icon
+      // Добавляем иконку видео
       const videoIcon = document.createElement("i");
       videoIcon.className = "fas fa-video thumbnail-video-icon";
       thumbnail.appendChild(videoIcon);
     } else {
-      // Image thumbnail
+      // Обычное изображение
       const imgThumb = document.createElement("img");
       imgThumb.src = item.src;
       imgThumb.alt = item.alt;
@@ -233,22 +235,21 @@ function initGallery(galleryKey) {
     thumbnailsContainer.appendChild(thumbnail);
   });
 }
-
 function updateMainContent() {
   const mainGallerySlide = document.querySelector(".main-gallery-slide");
   const currentItem = currentGalleryImages[currentGalleryIndex];
 
-  // Clear previous content
+  // Очищаем предыдущий контент
   mainGallerySlide.innerHTML = '';
 
-  // Stop current video if exists
+  // Останавливаем текущее видео, если оно есть
   if (currentVideoElement) {
     currentVideoElement.pause();
     currentVideoElement = null;
   }
 
   if (currentItem.type === "video") {
-    // Create video element
+    // Создаем видео элемент
     const video = document.createElement("video");
     video.src = currentItem.src;
     video.controls = true;
@@ -256,7 +257,17 @@ function updateMainContent() {
     video.loop = true;
     video.classList.add("active-gallery-video");
     
-    // Add video icon
+    // Устанавливаем громкость
+    video.volume = VIDEO_VOLUME_LEVEL;
+    
+    // Обработчик для сохранения громкости при включении звука
+    video.addEventListener('volumechange', function() {
+      if (video.volume > VIDEO_VOLUME_LEVEL) {
+        video.volume = VIDEO_VOLUME_LEVEL;
+      }
+    });
+    
+    // Добавляем иконку видео
     const videoIcon = document.createElement("i");
     videoIcon.className = "fas fa-video gallery-video-icon";
     mainGallerySlide.appendChild(videoIcon);
@@ -264,7 +275,7 @@ function updateMainContent() {
     mainGallerySlide.appendChild(video);
     currentVideoElement = video;
   } else {
-    // Create image
+    // Создаем изображение
     const img = new Image();
     img.src = currentItem.src;
     img.alt = currentItem.alt;

@@ -16,10 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
   updateToggleButton(currentLanguage);
   
   // Language toggle event listener
-  document.getElementById('language-toggle').addEventListener('click', function() {
-    const newLang = currentLanguage === 'ru' ? 'en' : 'ru';
-    changeLanguage(newLang);
-  });
+  const languageToggle = document.getElementById('language-toggle');
+  if (languageToggle) {
+    languageToggle.addEventListener('click', function() {
+      const newLang = currentLanguage === 'ru' ? 'en' : 'ru';
+      changeLanguage(newLang);
+    });
+  }
   
   function changeLanguage(lang) {
     currentLanguage = lang;
@@ -29,16 +32,27 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function applyLanguage(lang) {
+    // Update page title
+    const pageTitle = document.querySelector('title[data-translate]');
+    if (pageTitle) {
+      const key = pageTitle.getAttribute('data-translate');
+      if (translations[lang] && translations[lang][key]) {
+        document.title = translations[lang][key];
+      }
+    }
+    
     // Update all translatable elements
     document.querySelectorAll('[data-translate]').forEach(element => {
-      const key = element.getAttribute('data-translate');
-      if (translations[lang] && translations[lang][key]) {
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-          element.value = translations[lang][key];
-        } else if (element.tagName === 'IMG' && element.hasAttribute('alt')) {
-          element.alt = translations[lang][key];
-        } else {
-          element.textContent = translations[lang][key];
+      if (element.tagName !== 'TITLE') { // Skip title as we already handled it
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.value = translations[lang][key];
+          } else if (element.tagName === 'IMG' && element.hasAttribute('alt')) {
+            element.alt = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
         }
       }
     });
@@ -49,7 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function updateToggleButton(lang) {
     const toggleBtn = document.getElementById('language-toggle');
-    toggleBtn.textContent = lang === 'ru' ? 'RU' : 'EN';
-    toggleBtn.setAttribute('data-lang', lang);
+    if (toggleBtn) {
+      toggleBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+      toggleBtn.setAttribute('data-lang', lang);
+    }
   }
 });

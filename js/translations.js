@@ -4,7 +4,7 @@ const translations = {
     "page-title": "PANZZi - Премиум мебель и материалы из Китая",
     whatsapp: "WhatsApp",
     telegram: "Telegram",
-    "view-gallery": "Смотреть",
+    "view-gallery": "Смотреть решения",
     "contact-us": "Связаться с нами",
     "project-details": "Подробнее о проекте",
     "write-us": "Написать",
@@ -102,7 +102,7 @@ const translations = {
     "footer-cooperation": "Сотрудничество",
     "footer-for-clients": "Для клиентов",
     "footer-contacts": "Контакты",
-    "footer-address": "Китай, Гуанчжоу",
+    "footer-address": "Китай, Шанхай",
     "footer-rights": "© 2025 PANZZi. Все права защищены.",
 
     // Clients
@@ -141,7 +141,7 @@ const translations = {
     "page-title": "PANZZi - Premium furniture and materials from China",
     whatsapp: "WhatsApp",
     telegram: "Telegram",
-    "view-gallery": "View",
+    "view-gallery": "View solutions",
     "contact-us": "Contact us",
     "project-details": "Project details",
     "write-us": "Write to us",
@@ -239,7 +239,7 @@ const translations = {
     "footer-cooperation": "Cooperation",
     "footer-for-clients": "For clients",
     "footer-contacts": "Contacts",
-    "footer-address": "China, Guangzhou",
+    "footer-address": "China, Shanghai",
     "footer-rights": "© 2025 PANZZi. All rights reserved.",
 
     // Clients

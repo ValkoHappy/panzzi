@@ -164,7 +164,10 @@ const galleryData = {
     { src: "content/projects/villa_project/villa_project1.jpg", alt: "Вилла 2" },
     { src: "content/projects/villa_project/PalmParadise.mp4", alt: "Вилла 1", type: "video" },
     { src: "content/projects/villa_project/villa_project_video1.MOV", alt: "Вилла 2", type: "video" },
-  ]
+  ],
+    wechat: [
+    { src: "content/wechat/photo_2025-07-11_10-43-59.jpg", alt: "wechat 1" },
+  ],
 };
 
 // Gallery functionality

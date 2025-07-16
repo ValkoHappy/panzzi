@@ -4,6 +4,7 @@ const translations = {
     "page-title": "PANZZi - Премиум мебель и материалы из Китая",
     whatsapp: "WhatsApp",
     telegram: "Telegram",
+    vk: "Vk",
     "view-gallery": "Смотреть решения",
     "contact-us": "Связаться с нами",
     "project-details": "Подробнее о проекте",
@@ -88,7 +89,7 @@ const translations = {
     "section-contacts": "Контакты",
     "contact-description": "Свяжитесь с нами через удобный для вас мессенджер или социальную сеть. Мы ответим в кратчайшие сроки и поможем с вашим проектом.",
     "contact-methods": "Способы связи",
-    "contact-instagram": "@yourprofile",
+    "contact-instagram": "Написать",
 
     // Footer
     "footer-about": "Оснащение ресторанов, отелей, вилл, из Китая под ключ.",
@@ -102,7 +103,7 @@ const translations = {
     "footer-cooperation": "Сотрудничество",
     "footer-for-clients": "Для клиентов",
     "footer-contacts": "Контакты",
-    "footer-address": "Китай, Шанхай",
+    "footer-address": "Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai 158 2174 4928",
     "footer-rights": "© 2025 PANZZi. Все права защищены.",
 
     // Clients
@@ -131,7 +132,7 @@ const translations = {
     "benefit-phased": "Поэтапная поставка",
     "office-title": "Наш офис в Шанхае",
     "office-description": "Для клиентов, которым важно увидеть, оценить, прикоснуться, пообщаться лично у нас есть офис в Шанхае.",
-    "office-address": "上海市浦东新区张杨路500号",
+    "office-address": "Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai 158 2174 4928",
     "office-hours": "Пн-Пт: 9:00-18:00",
     "office-appointment": "Записаться на встречу",
     "office-image-alt": "Наш офис"
@@ -141,6 +142,7 @@ const translations = {
     "page-title": "PANZZi - Premium furniture and materials from China",
     whatsapp: "WhatsApp",
     telegram: "Telegram",
+    vk: "Vk",
     "view-gallery": "View solutions",
     "contact-us": "Contact us",
     "project-details": "Project details",
@@ -225,7 +227,7 @@ const translations = {
     "section-contacts": "Contacts",
     "contact-description": "Contact us through your preferred messenger or social network. We will respond as soon as possible and help with your project.",
     "contact-methods": "Contact methods",
-    "contact-instagram": "@yourprofile",
+    "contact-instagram": "Write to us",
 
     // Footer
     "footer-about": "Restaurant, hotel, villa equipment from China turnkey.",
@@ -239,7 +241,7 @@ const translations = {
     "footer-cooperation": "Cooperation",
     "footer-for-clients": "For clients",
     "footer-contacts": "Contacts",
-    "footer-address": "China, Shanghai",
+    "footer-address": "Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai 158 2174 4928",
     "footer-rights": "© 2025 PANZZi. All rights reserved.",
 
     // Clients
@@ -268,7 +270,7 @@ const translations = {
     "benefit-phased": "Phased delivery",
     "office-title": "Our office in Shanghai",
     "office-description": "For clients who want to see, evaluate, touch, communicate in person we have an office in Shanghai.",
-    "office-address": "500 Zhangyang Road, Pudong New District, Shanghai",
+    "office-address": "Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai 158 2174 4928",
     "office-hours": "Mon-Fri: 9:00-18:00",
     "office-appointment": "Schedule a meeting",
     "office-image-alt": "Our office"

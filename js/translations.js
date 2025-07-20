@@ -80,7 +80,7 @@ const translations = {
       "Гармоничное сочетание современного дизайна и европейского комфорта в интерьере.",
     "project-hangzhou-feature-design": "Авторские дизайн-решения",
     "project-hangzhou-feature-materials": "Качественные отделочные материалы",
-    "project-hangzhou-feature-smart": "Smart-системы для комфорта",
+    "project-hangzhou-feature-smart": "Эргономика и функциональность",
 
     // Why Choose Us section
     "section-approach": "Наш подход",
@@ -247,7 +247,7 @@ const translations = {
       "Harmonious blend of contemporary design and European comfort in the interior.",
     "project-hangzhou-feature-design": "Custom design solutions",
     "project-hangzhou-feature-materials": "High-quality finishing materials",
-    "project-hangzhou-feature-smart": "Smart systems for comfort",
+    "project-hangzhou-feature-smart": "Ergonomics & functionality",
 
     // Why Choose Us section
     "section-approach": "Our approach",

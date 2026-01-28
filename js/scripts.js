@@ -1,3 +1,57 @@
+// ======================================
+// NAVIGATION & BURGER MENU
+// ======================================
+
+// Burger menu toggle
+const burgerMenu = document.getElementById('burger-menu');
+const navMenu = document.getElementById('nav-menu');
+const navbar = document.getElementById('navbar');
+const navOverlay = document.getElementById('nav-overlay');
+
+if (burgerMenu && navMenu) {
+  burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    if (navOverlay) navOverlay.classList.toggle('active');
+  });
+  
+  // Close menu when clicking on nav links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      if (navOverlay) navOverlay.classList.remove('active');
+    });
+  });
+  
+  // Close menu when clicking on overlay
+  if (navOverlay) {
+    navOverlay.addEventListener('click', () => {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      navOverlay.classList.remove('active');
+    });
+  }
+}
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  if (navbar) {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+});
+
+// ======================================
+// HERO SLIDER
+// ======================================
+
 // Hero slider
 let currentSlide = 0;
 const slides = document.querySelectorAll(".hero-slide");

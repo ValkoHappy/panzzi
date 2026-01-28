@@ -3,37 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-translate="clients-page-title">PANZZi</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="content/favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="PANZZi — специальные условия сотрудничества для дизайнеров, рестораторов и отельеров. Оптовые цены, персональный менеджер, комплексное оснащение под ключ." />
+    <meta name="keywords" content="сотрудничество PANZZi, оптовые заказы мебели, мебель для ресторанов оптом, дизайнеры интерьера, HoReCa поставщик" />
+    <meta name="author" content="PANZZi" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://panzzi.com/clients.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://panzzi.com/clients.html" />
+    <meta property="og:title" content="PANZZi — Для дизайнеров и рестораторов" />
+    <meta property="og:description" content="Специальные условия сотрудничества: оптовые цены, персональный менеджер, закрытый каталог." />
+    <meta property="og:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
+    <meta property="og:locale" content="ru_RU" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PANZZi — Для дизайнеров и рестораторов" />
+    <meta name="twitter:description" content="Специальные условия сотрудничества для профессионалов." />
+    <meta name="twitter:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
+    
+    <title data-translate="clients-page-title">PANZZi — Информация для клиентов</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="content/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="content/favicon/favicon.svg" />
     <link rel="shortcut icon" href="content/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="content/favicon/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="content/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="content/favicon/site.webmanifest" />
+    
+    <!-- Preconnect & DNS Prefetch for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <div class="language-switcher">
-      <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
-    </div>
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html#home" class="nav-logo">PANZZi</a>
+        
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html#home" class="nav-link" data-translate="nav-home">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#about" class="nav-link" data-translate="nav-about">О компании</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#services" class="nav-link" data-translate="nav-services">Услуги</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#projects" class="nav-link" data-translate="nav-projects">Проекты</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#why-choose-us" class="nav-link" data-translate="nav-why-us">Почему мы</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#contacts" class="nav-link" data-translate="nav-contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        
+        <div class="nav-actions">
+          <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
+          <button class="burger-menu" id="burger-menu" aria-label="Меню">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
     <!-- Hero Section -->
     <section class="hero clients-hero">
       <div class="hero-slider">
@@ -198,8 +261,10 @@
           <div class="office-image">
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-              alt="Наш офис"
+              alt="Офис PANZZi в Шанхае — встреча с клиентами"
               data-translate-alt="office-image-alt"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="office-info">
@@ -303,8 +368,8 @@
       </div>
     </footer>
 
-    <script src="js/scripts.js"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/translations_scripts.js"></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/translations_scripts.js" defer></script>
   </body>
 </html>

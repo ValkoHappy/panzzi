@@ -4,37 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="supported-languages" content="ru, en" />
-    <title data-translate="page-title">PANZZi</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="content/favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="PANZZi — премиум мебель, освещение, посуда и материалы для интерьера из Китая. Оснащаем рестораны, отели, виллы под ключ. 20 лет опыта в F&B индустрии." />
+    <meta name="keywords" content="мебель из Китая, посуда для ресторанов, освещение, интерьер отеля, оснащение ресторана, PANZZi, мебель для HoReCa, дизайнерская мебель" />
+    <meta name="author" content="PANZZi" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://panzzi.com/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://panzzi.com/" />
+    <meta property="og:title" content="PANZZi — Премиум мебель и материалы из Китая" />
+    <meta property="og:description" content="Оснащаем рестораны, отели, виллы под ключ. Мебель, освещение, посуда, материалы для интерьера. 20 лет опыта." />
+    <meta property="og:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PANZZi — Премиум мебель и материалы из Китая" />
+    <meta name="twitter:description" content="Оснащаем рестораны, отели, виллы под ключ. Мебель, освещение, посуда." />
+    <meta name="twitter:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
+    
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PANZZi",
+      "url": "https://panzzi.com",
+      "logo": "https://panzzi.com/content/LOGO/logo.png",
+      "description": "Премиум мебель, освещение, посуда и материалы для интерьера из Китая. Оснащаем рестораны, отели, виллы под ключ.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Office 107, Building 8, No. 50 Moganshan Road",
+        "addressLocality": "Shanghai",
+        "addressRegion": "Putuo District",
+        "addressCountry": "CN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+86-21-5879-1234",
+        "contactType": "customer service",
+        "availableLanguage": ["Russian", "English", "Chinese"]
+      },
+      "sameAs": [
+        "https://instagram.com/panzzi_furniture",
+        "https://vk.com/club231583657",
+        "https://t.me/Panzzi_bot"
+      ]
+    }
+    </script>
+    
+    <title data-translate="page-title">PANZZi — Премиум мебель и материалы из Китая</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="content/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="content/favicon/favicon.svg" />
     <link rel="shortcut icon" href="content/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="content/favicon/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="content/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="content/favicon/site.webmanifest" />
+    
+    <!-- Preconnect & DNS Prefetch for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <div class="language-switcher">
-      <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
-    </div>
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">PANZZi</a>
+        
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#home" class="nav-link" data-translate="nav-home">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link" data-translate="nav-about">О компании</a>
+            </li>
+            <li class="nav-item">
+              <a href="#services" class="nav-link" data-translate="nav-services">Услуги</a>
+            </li>
+            <li class="nav-item">
+              <a href="#projects" class="nav-link" data-translate="nav-projects">Проекты</a>
+            </li>
+            <li class="nav-item">
+              <a href="#why-choose-us" class="nav-link" data-translate="nav-why-us">Почему мы</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contacts" class="nav-link" data-translate="nav-contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        
+        <div class="nav-actions">
+          <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
+          <button class="burger-menu" id="burger-menu" aria-label="Меню">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-slider">
@@ -140,8 +234,10 @@
           <div class="about-image">
             <img
               src="content/Mockaps/2.jpg"
-              alt="О PANZZi"
+              alt="О PANZZi — поставщик премиум мебели из Китая"
               data-translate-alt="about-image-alt"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -300,8 +396,10 @@
             <div class="project-image">
               <img
                 src="content/projects/lazy_bar/photo_1_2025-07-07_12-58-50.jpg"
-                alt="Lazy Bar"
+                alt="Lazy Bar — проект оснащения бара под ключ"
                 data-translate-alt="project-lazy-bar-alt"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="project-info">
@@ -355,8 +453,10 @@
             <div class="project-image">
               <img
                 src="content/projects/mom_restaurant/photo_6_2025-07-07_12-59-31.jpg"
-                alt="MOM ресторан"
+                alt="MOM ресторан в Шанхае — комплексное оснащение"
                 data-translate-alt="project-mom-restaurant-alt"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="project-info">
@@ -410,8 +510,10 @@
             <div class="project-image">
               <img
                 src="content/projects/panzzi_showroom/photo_7_2025-07-07_13-00-12.jpg"
-                alt="Showroom Panzzi"
+                alt="Showroom Panzzi в Шанхае — выставочное пространство"
                 data-translate-alt="project-panzzi-showroom-alt"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="project-info">
@@ -468,8 +570,10 @@
             <div class="project-image">
               <img
                 src="content/projects/villa_project/villa_project1.jpg"
-                alt="Вилла"
+                alt="Частная вилла — оснащение интерьера"
                 data-translate-alt="project-villa-alt"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="project-info">
@@ -523,8 +627,10 @@
             <div class="project-image">
               <img
                 src="content/projects/villa_gangzhou/photo_9_2025-07-20_18-18-12.jpg"
-                alt="Вилла в Ханчжоу"
+                alt="Вилла в Ханчжоу — современный дизайн интерьера"
                 data-translate-alt="project-hangzhou-villa-alt"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="project-info">
@@ -786,8 +892,8 @@
         </div>
       </div>
     </footer>
-    <script src="js/scripts.js"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/translations_scripts.js"></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/translations_scripts.js" defer></script>
   </body>
 </html>

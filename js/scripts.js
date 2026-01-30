@@ -271,6 +271,14 @@ function initGallery(galleryKey) {
   // Set main content (image or video)
   updateMainContent();
 
+  // Preload all images in the gallery
+  currentGalleryImages.forEach(item => {
+    if (item.type !== "video") {
+      const preloadLink = new Image();
+      preloadLink.src = item.src;
+    }
+  });
+
   // Create thumbnails
   currentGalleryImages.forEach((item, index) => {
     const thumbnail = document.createElement("div");

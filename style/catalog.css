@@ -378,7 +378,7 @@
     height: auto;
     display: block;
     aspect-ratio: 16 / 9;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 15px;
 }
 

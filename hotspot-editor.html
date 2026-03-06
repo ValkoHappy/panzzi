@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор интерактивных точек - PANZZi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .editor-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .editor-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .editor-header h1 {
+            font-size: 1.5rem;
+        }
+
+        .editor-body {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .canvas-area {
+            padding: 30px;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .image-upload {
+            border: 3px dashed #ccc;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .image-upload:hover {
+            border-color: #c3a762;
+            background: #fff;
+        }
+
+        .image-upload.has-image {
+            border: none;
+            padding: 0;
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .canvas-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .editor-hotspot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            transform: translate(-50%, -50%);
+            cursor: move;
+            z-index: 10;
+        }
+
+        .editor-hotspot-dot {
+            width: 20px;
+            height: 20px;
+            background: #c3a762;
+            border: 3px solid white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+        }
+
+        .editor-hotspot:hover .editor-hotspot-dot {
+            transform: translate(-50%, -50%) scale(1.3);
+            background: #a99256;
+        }
+
+        .editor-hotspot.selected .editor-hotspot-dot {
+            background: #ff6b6b;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+        }
+
+        .hotspot-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .sidebar {
+            background: white;
+            border-left: 1px solid #eee;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #c3a762;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #c3a762;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #a99256;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #ff5252;
+        }
+
+        .btn-success {
+            background: #51cf66;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #40c057;
+        }
+
+        .hotspots-list {
+            margin-top: 30px;
+        }
+
+        .hotspot-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .hotspot-item:hover {
+            background: #e9ecef;
+        }
+
+        .hotspot-item.selected {
+            background: #ffe0e0;
+            border: 2px solid #ff6b6b;
+        }
+
+        .hotspot-item-info {
+            flex: 1;
+        }
+
+        .hotspot-item-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .hotspot-item-coords {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .hotspot-item-delete {
+            color: #ff6b6b;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+        }
+
+        .hotspot-item-delete:hover {
+            color: #ff5252;
+        }
+
+        .code-output {
+            margin-top: 30px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 6px;
+            color: #51cf66;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #51cf66;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #c3a762;
+            margin-bottom: 15px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .preview-display {
+            margin-top: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 2px dashed #e0e0e0;
+        }
+
+        .preview-display.has-file {
+            border-color: #51cf66;
+            background: #f0fdf4;
+        }
+
+        .coordinates-display {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            border: 2px solid #e0e0e0;
+        }
+
+        .coordinates-display i {
+            color: #c3a762;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="editor-header">
+            <h1><i class="fas fa-map-marked-alt"></i> Редактор интерактивных точек</h1>
+            <a href="catalog.html" style="color: #c3a762; text-decoration: none;">
+                <i class="fas fa-arrow-left"></i> Вернуться к каталогу
+            </a>
+        </div>
+
+        <div class="editor-body">
+            <div class="canvas-area">
+                <div class="image-upload" id="imageUpload">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Загрузите изображение карты</h3>
+                    <p style="color: #666; margin-top: 10px;">Кликните или перетащите файл сюда</p>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h2><i class="fas fa-cog"></i> Настройки точки</h2>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-tag"></i> Категория товаров</label>
+                    <select id="categorySelect">
+                        <option value="">-- Выберите категорию --</option>
+                        <option value="chairs" data-title="Стулья">Стулья</option>
+                        <option value="bar-stools" data-title="Барные стулья">Барные стулья</option>
+                        <option value="armchairs" data-title="Кресла">Кресла</option>
+                        <option value="sofas" data-title="Диваны">Диваны</option>
+                        <option value="beds" data-title="Кровати">Кровати</option>
+                        <option value="dining-tables" data-title="Обеденные столы">Обеденные столы</option>
+                        <option value="coffee-tables" data-title="Кофейные столы">Кофейные столы</option>
+                        <option value="bedside-tables" data-title="Прикроватные тумбы">Прикроватные тумбы</option>
+                        <option value="buffet" data-title="Буфет">Буфет</option>
+                        <option value="shelving" data-title="Стеллаж">Стеллаж</option>
+                        <option value="dresser" data-title="Комод">Комод</option>
+                        <option value="outdoor-sofa" data-title="Уличный диван">Уличный диван</option>
+                        <option value="outdoor-armchair" data-title="Уличное кресло">Уличное кресло</option>
+                        <option value="outdoor-tables" data-title="Уличные столы">Уличные столы</option>
+                        <option value="vases" data-title="Вазы">Вазы</option>
+                        <option value="sculptures" data-title="Скульптуры">Скульптуры</option>
+                        <option value="mirrors" data-title="Зеркала">Зеркала</option>
+                        <option value="glass" data-title="Стекло">Стекло</option>
+                        <option value="plates" data-title="Тарелки">Тарелки</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-image"></i> Превью изображение</label>
+                    <button class="btn btn-primary" id="selectPreviewBtn">
+                        <i class="fas fa-folder-open"></i> Выбрать фото
+                    </button>
+                    <input type="file" id="previewInput" accept="image/*" style="display: none;">
+                    <div class="preview-display" id="previewDisplay">
+                        <p class="help-text" id="previewPath">Файл не выбран</p>
+                    </div>
+                </div>
+
+                <div class="coordinates-display" id="coordsDisplay">
+                    <strong><i class="fas fa-crosshairs"></i> Координаты:</strong> Кликните на изображение
+                </div>
+
+                <button class="btn btn-danger" id="deleteBtn" style="display: none;">
+                    <i class="fas fa-trash-alt"></i> Удалить точку
+                </button>
+
+                <div class="hotspots-list">
+                    <h2><i class="fas fa-list"></i> Точки (<span id="hotspotsCount">0</span>)</h2>
+                    <div id="hotspotsList"></div>
+                </div>
+
+                <button class="btn btn-success" id="generateBtn">
+                    <i class="fas fa-code"></i> Сгенерировать код
+                </button>
+
+                <div class="code-output" id="codeOutput" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copy-notification" id="copyNotification">
+        <i class="fas fa-check-circle"></i> Код скопирован в буфер обмена!
+    </div>
+
+    <script src="js/hotspot-editor.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ if (burgerMenu && navMenu) {
     document.body.classList.toggle('menu-open');
     if (navOverlay) navOverlay.classList.toggle('active');
   });
-  
+
   // Close menu when clicking on nav links
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
@@ -25,7 +25,7 @@ if (burgerMenu && navMenu) {
       if (navOverlay) navOverlay.classList.remove('active');
     });
   });
-  
+
   // Close menu when clicking on overlay
   if (navOverlay) {
     navOverlay.addEventListener('click', () => {
@@ -57,14 +57,15 @@ let currentSlide = 0;
 const slides = document.querySelectorAll(".hero-slide");
 const totalSlides = slides.length;
 
-function changeSlide() {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % totalSlides;
-  slides[currentSlide].classList.add("active");
+if (slides.length > 0) {
+  function changeSlide() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slides[currentSlide].classList.add("active");
+    setTimeout(changeSlide, 5000);
+  }
   setTimeout(changeSlide, 5000);
 }
-
-setTimeout(changeSlide, 5000);
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -103,7 +104,7 @@ function closeModal(modalId) {
     currentVideoElement.pause();
     currentVideoElement = null;
   }
-  
+
   document.getElementById(modalId).style.display = "none";
   document.body.style.position = "";
   document.body.style.top = "";
@@ -170,7 +171,7 @@ const galleryData = {
     { src: "content/services/furniture/photo_6_2025-07-06_13-29-46.jpg", alt: "Мебель 6" },
     { src: "content/services/furniture/photo_7_2025-07-06_13-29-46.jpg", alt: "Мебель 7" },
   ],
-    materials: [
+  materials: [
     { src: "content/services/materials/photo_1_2025-07-06_13-38-58.jpg", alt: "Материал 1" },
     { src: "content/services/materials/photo_2_2025-07-06_13-38-58.jpg", alt: "Материал 2" },
     { src: "content/services/materials/photo_3_2025-07-06_13-38-58.jpg", alt: "Материал 3" },
@@ -186,14 +187,14 @@ const galleryData = {
     { src: "content/services/materials/photo_8_2025-07-20_18-14-14.jpg", alt: "Материал 13" },
     { src: "content/services/materials/photo_9_2025-07-20_18-14-14.jpg", alt: "Материал 14" },
   ],
-    turnkey_projects: [
+  turnkey_projects: [
     { src: "content/services/turnkey_projects/photo_1_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 1" },
     { src: "content/services/turnkey_projects/photo_2_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 2" },
     { src: "content/services/turnkey_projects/photo_3_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 3" },
     { src: "content/services/turnkey_projects/photo_4_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 4" },
     { src: "content/services/turnkey_projects/photo_5_2025-07-06_13-36-40.jpg", alt: "Проект под ключ 5" },
   ],
-   lazy_bar: [
+  lazy_bar: [
     { src: "content/projects/lazy_bar/photo_1_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 1" },
     { src: "content/projects/lazy_bar/photo_2_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 2" },
     { src: "content/projects/lazy_bar/photo_3_2025-07-07_12-58-50.jpg", alt: "Lazy Bar 3" },
@@ -228,7 +229,7 @@ const galleryData = {
     { src: "content/projects/villa_project/PalmParadise.mp4", alt: "Вилла 1", type: "video" },
     { src: "content/projects/villa_project/villa_project_video1.MOV", alt: "Вилла 2", type: "video" },
   ],
-    villa_gangzhou : [
+  villa_gangzhou: [
     { src: "content/projects/villa_gangzhou/photo_1_2025-07-20_18-18-12.jpg", alt: "Вилла 1" },
     { src: "content/projects/villa_gangzhou/photo_2_2025-07-20_18-18-12.jpg", alt: "Вилла 2" },
     { src: "content/projects/villa_gangzhou/photo_3_2025-07-20_18-18-12.jpg", alt: "Вилла 3" },
@@ -238,8 +239,8 @@ const galleryData = {
     { src: "content/projects/villa_gangzhou/photo_7_2025-07-20_18-18-12.jpg", alt: "Вилла 7" },
     { src: "content/projects/villa_gangzhou/photo_8_2025-07-20_18-18-12.jpg", alt: "Вилла 8" },
     { src: "content/projects/villa_gangzhou/photo_9_2025-07-20_18-18-12.jpg", alt: "Вилла 9" },
-],
-    wechat: [
+  ],
+  wechat: [
     { src: "content/wechat/photo_2025-07-11_10-43-59.jpg", alt: "wechat 1" },
   ],
 };
@@ -297,10 +298,10 @@ function initGallery(galleryKey) {
         videoThumb.currentTime = 0;
       });
       videoThumb.addEventListener('seeked', () => {
-        videoThumb.play().catch(e => {});
+        videoThumb.play().catch(e => { });
       });
       thumbnail.appendChild(videoThumb);
-      
+
       // Добавляем иконку видео
       const videoIcon = document.createElement("i");
       videoIcon.className = "fas fa-video thumbnail-video-icon";
@@ -341,22 +342,22 @@ function updateMainContent() {
     video.autoplay = true;
     video.loop = true;
     video.classList.add("active-gallery-video");
-    
+
     // Устанавливаем громкость
     video.volume = VIDEO_VOLUME_LEVEL;
-    
+
     // Обработчик для сохранения громкости при включении звука
-    video.addEventListener('volumechange', function() {
+    video.addEventListener('volumechange', function () {
       if (video.volume > VIDEO_VOLUME_LEVEL) {
         video.volume = VIDEO_VOLUME_LEVEL;
       }
     });
-    
+
     // Добавляем иконку видео
     const videoIcon = document.createElement("i");
     videoIcon.className = "fas fa-video gallery-video-icon";
     mainGallerySlide.appendChild(videoIcon);
-    
+
     mainGallerySlide.appendChild(video);
     currentVideoElement = video;
   } else {
@@ -415,7 +416,7 @@ function handleGalleryOpen(element) {
 
 // Initialize gallery buttons and links
 document.querySelectorAll(".btn-gallery, a[data-gallery]").forEach((element) => {
-  element.addEventListener("click", function(e) {
+  element.addEventListener("click", function (e) {
     if (element.tagName.toLowerCase() === "a") {
       e.preventDefault();
     }

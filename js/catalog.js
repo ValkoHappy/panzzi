@@ -67,62 +67,65 @@ window.addEventListener('scroll', () => {
 // INTERACTIVE MAP SLIDER
 // ======================================
 
-let currentMapSlide = 0;
-const mapSlides = document.querySelectorAll('.interactive-map-wrapper');
-const mapDots = document.querySelectorAll('.map-dots .dot');
-const mapPrevBtn = document.querySelector('.map-nav-btn.prev');
-const mapNextBtn = document.querySelector('.map-nav-btn.next');
+// Initialize all map sliders independently
+document.querySelectorAll('.map-slider-container').forEach((sliderContainer) => {
+    let currentMapSlide = 0;
+    const mapSlides = sliderContainer.querySelectorAll('.interactive-map-wrapper');
+    const mapDots = sliderContainer.querySelectorAll('.map-dots .dot');
+    const mapPrevBtn = sliderContainer.querySelector('.map-nav-btn.prev');
+    const mapNextBtn = sliderContainer.querySelector('.map-nav-btn.next');
 
-function showMapSlide(index) {
-    // Wrap around
-    if (index >= mapSlides.length) {
-        currentMapSlide = 0;
-    } else if (index < 0) {
-        currentMapSlide = mapSlides.length - 1;
-    } else {
-        currentMapSlide = index;
-    }
-
-    // Hide all slides
-    mapSlides.forEach(slide => slide.classList.remove('active'));
-    
-    // Show current slide
-    if (mapSlides[currentMapSlide]) {
-        mapSlides[currentMapSlide].classList.add('active');
-    }
-
-    // Update dots
-    mapDots.forEach((dot, i) => {
-        if (i === currentMapSlide) {
-            dot.classList.add('active');
+    function showMapSlide(index) {
+        // Wrap around
+        if (index >= mapSlides.length) {
+            currentMapSlide = 0;
+        } else if (index < 0) {
+            currentMapSlide = mapSlides.length - 1;
         } else {
-            dot.classList.remove('active');
+            currentMapSlide = index;
         }
-    });
-}
 
-// Navigation buttons
-if (mapPrevBtn) {
-    mapPrevBtn.addEventListener('click', () => {
-        showMapSlide(currentMapSlide - 1);
-    });
-}
+        // Hide all slides
+        mapSlides.forEach(slide => slide.classList.remove('active'));
+        
+        // Show current slide
+        if (mapSlides[currentMapSlide]) {
+            mapSlides[currentMapSlide].classList.add('active');
+        }
 
-if (mapNextBtn) {
-    mapNextBtn.addEventListener('click', () => {
-        showMapSlide(currentMapSlide + 1);
-    });
-}
+        // Update dots
+        mapDots.forEach((dot, i) => {
+            if (i === currentMapSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
 
-// Dots navigation
-mapDots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showMapSlide(index);
+    // Navigation buttons
+    if (mapPrevBtn) {
+        mapPrevBtn.addEventListener('click', () => {
+            showMapSlide(currentMapSlide - 1);
+        });
+    }
+
+    if (mapNextBtn) {
+        mapNextBtn.addEventListener('click', () => {
+            showMapSlide(currentMapSlide + 1);
+        });
+    }
+
+    // Dots navigation
+    mapDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showMapSlide(index);
+        });
     });
+
+    // Initialize
+    showMapSlide(0);
 });
-
-// Initialize
-showMapSlide(0);
 
 // ======================================
 // CATEGORY NAVIGATION - DROPDOWN

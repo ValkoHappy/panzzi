@@ -282,7 +282,7 @@
 /* Interactive Catalog Map */
 .interactive-catalog-map {
     padding: 25px 0 20px;
-    background: var(--color-white);
+    background: var(--color-bg);
 }
 
 .map-slider-container {

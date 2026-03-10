@@ -92,6 +92,15 @@
     color: var(--color-white);
 }
 
+.category-btn-link {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.category-btn-link:hover {
+    color: var(--color-white);
+}
+
 .category-dropdown:hover .category-btn i:last-child {
     transform: rotate(180deg);
 }
@@ -301,6 +310,7 @@
 .interactive-map-wrapper {
     position: relative;
     width: 100%;
+    max-height: 65vh;
     border-radius: 15px;
     overflow: visible;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -376,10 +386,12 @@
 .catalog-map-image {
     width: 100%;
     height: auto;
+    max-height: 65vh;
     display: block;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
+    vertical-align: top;
     border-radius: 15px;
+    object-fit: contain;
+    object-position: top center;
 }
 
 .hotspot {
@@ -569,6 +581,68 @@
 /* Remove underline from catalog section titles */
 .catalog-section .section-title:after {
     display: none;
+}
+
+/* Строка: заголовок слева, кнопки PDF справа (Материалы для интерьера) */
+.section-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.section-title-row .section-title {
+    margin-bottom: 0;
+    margin-right: 24px;
+}
+
+/* Кнопки «Посмотреть PDF» — в стиле кнопок навигации (белый/светлый фон, золотой текст) */
+.pdf-catalog-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+}
+
+/* Кнопки PDF под галереей — по центру */
+.pdf-catalog-buttons-centered {
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+.btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--color-white);
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid var(--color-gray);
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.btn-pdf:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(195, 167, 98, 0.25);
+}
+
+.btn-pdf i {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+}
+
+.btn-pdf:hover i {
+    color: var(--color-white);
 }
 
 /* Product Sliders */

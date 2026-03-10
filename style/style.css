@@ -6,6 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   z-index: 1000;
   padding: 15px 0;
@@ -13,6 +14,7 @@
   background: rgba(26, 26, 26, 0.6);
   backdrop-filter: blur(5px);
   border-bottom: 1px solid rgba(195, 167, 98, 0.4);
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -154,8 +156,8 @@
   transform: translateY(-8.5px) rotate(-45deg);
 }
 
-/* Mobile Navigation */
-@media (max-width: 992px) {
+/* Mobile Navigation (бургер уже при < 1200px, чтобы текст не ломался в столбик) */
+@media (max-width: 1200px) {
   .burger-menu {
     display: flex;
   }
@@ -389,7 +391,7 @@ body.menu-open {
 }
 
 html {
-  margin-right: calc(-1 * (100vw - 100%));
+  scrollbar-gutter: stable;
 }
 
 * {

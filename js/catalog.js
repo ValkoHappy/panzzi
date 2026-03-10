@@ -191,6 +191,21 @@ document.querySelectorAll('.dropdown-column a').forEach(link => {
     });
 });
 
+// Кнопки-ссылки (Свет, Материалы для интерьера) — сразу скролл к секции
+document.querySelectorAll('.category-btn-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            const catalogNav = document.querySelector('.catalog-navigation');
+            const navHeight = catalogNav ? catalogNav.offsetHeight + 70 : 90;
+            const targetPosition = targetSection.offsetTop - navHeight - 20;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+    });
+});
+
 // ======================================
 // CATALOG PRODUCTS
 // ======================================
@@ -242,6 +257,11 @@ const products = [
         return p;
     }),
 
+    // Кровати (мягкая мебель)
+    ...Array.from({ length: 8 }, (_, i) => ({
+        id: 350 + i, category: 'beds', title: `Кровать ${i + 1}`, img: `imgs/cataloge/кровать${i + 1}.png`
+    })),
+
     // Обеденные столы
     ...[1, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((n, i) => ({
         id: 400 + i, category: 'dining-tables', title: `Стол ${n}`, img: `imgs/cataloge/стол${n}.png`
@@ -283,19 +303,36 @@ const products = [
     { id: 722, category: 'shelving', title: 'Стеллаж 2', img: 'imgs/cataloge/шкаф11.png' },
     { id: 723, category: 'shelving', title: 'Стеллаж 3', img: 'imgs/cataloge/шкаф16.png' },
 
-    // Уличная мебель
-    ...Array.from({ length: 13 }, (_, i) => ({
-        id: 800 + i, category: 'outdoor-sofa', title: `Уличный диван ${i + 1}`, img: `imgs/cataloge/улицадиван${i + 1}.png`
+    // Уличная мебель (диван 1 в конце)
+    ...Array.from({ length: 12 }, (_, i) => ({
+        id: 800 + i, category: 'outdoor-sofa', title: `Уличный диван ${i + 2}`, img: `imgs/cataloge/улицадиван${i + 2}.png`
     })),
+    { id: 812, category: 'outdoor-sofa', title: 'Уличный диван 1', img: 'imgs/cataloge/улицадиван1.png' },
     ...Array.from({ length: 10 }, (_, i) => ({
         id: 820 + i, category: 'outdoor-armchair', title: `Уличное кресло ${i + 1}`, img: `imgs/cataloge/улицакресло${i + 1}.png`
     })).map(p => {
         if (p.id === 821) p.img = 'imgs/cataloge/улицакресло2.png';
         return p;
     }),
-    { id: 840, category: 'outdoor-tables', title: 'Уличный стол 1', img: 'imgs/cataloge/улица1.png' },
-    { id: 841, category: 'outdoor-tables', title: 'Уличный стол 2', img: 'imgs/cataloge/улица2.png' },
-    { id: 842, category: 'outdoor-tables', title: 'Уличный стол 3', img: 'imgs/cataloge/улица3.png' },
+    // Уличные столы
+    ...Array.from({ length: 11 }, (_, i) => ({
+        id: 840 + i, category: 'outdoor-tables', title: `Уличный стол ${i + 1}`, img: `imgs/cataloge/улицастол${i + 1}.png`
+    })),
+
+    // Уличные кровати
+    ...Array.from({ length: 4 }, (_, i) => ({
+        id: 860 + i, category: 'outdoor-beds', title: `Уличная кровать ${i + 1}`, img: `imgs/cataloge/улицакровать${i + 1}.png`
+    })),
+
+    // Качели
+    ...Array.from({ length: 4 }, (_, i) => ({
+        id: 870 + i, category: 'swings', title: `Качели ${i + 1}`, img: `imgs/cataloge/улицакачель${i + 1}.png`
+    })),
+
+    // Лежаки
+    ...Array.from({ length: 4 }, (_, i) => ({
+        id: 880 + i, category: 'lounger', title: `Лежак ${i + 1}`, img: `imgs/cataloge/улицалежак${i + 1}.png`
+    })),
 
     // Декор -> Вазы
     ...[1, 2, 3, 8, 9, 10].map((n, i) => ({
@@ -335,18 +372,34 @@ const products = [
     ...Array.from({ length: 9 }, (_, i) => ({
         id: 1020 + i, category: 'outdoor-decor', title: `Уличный декор ${i + 1}`, img: `imgs/cataloge/улицадекор${i + 1}.png`
     })),
+
+    // Свет (из галереи на главной странице)
+    { id: 1100, category: 'lighting', title: 'Освещение 1', img: 'content/services/lighting/photo_1_2025-07-06_13-34-13.jpg' },
+    { id: 1101, category: 'lighting', title: 'Освещение 2', img: 'content/services/lighting/photo_2_2025-07-06_13-34-13.jpg' },
+    { id: 1102, category: 'lighting', title: 'Освещение 3', img: 'content/services/lighting/photo_3_2025-07-06_13-34-13.jpg' },
+    { id: 1103, category: 'lighting', title: 'Освещение 4', img: 'content/services/lighting/photo_4_2025-07-06_13-34-13.jpg' },
+    { id: 1104, category: 'lighting', title: 'Освещение 5', img: 'content/services/lighting/photo_5_2025-07-06_13-34-13.jpg' },
+    { id: 1105, category: 'lighting', title: 'Освещение 6', img: 'content/services/lighting/photo_6_2025-07-06_13-34-13.jpg' },
+    { id: 1106, category: 'lighting', title: 'Освещение 7', img: 'content/services/lighting/photo_7_2025-07-06_13-34-13.jpg' },
+
+    // Материалы для интерьера
+    ...Array.from({ length: 9 }, (_, i) => ({
+        id: 1200 + i, category: 'interior-materials', title: `Материалы для интерьера ${i + 1}`, img: `imgs/cataloge/Материалы для интерьера${i + 1}.png`
+    })),
 ];
 
 
 const categories = [
     'chairs', 'bar-stools', 'armchairs', 'sofas', 'beds',
     'dining-tables', 'coffee-tables',
-    'bedside-tables', 'buffet', 'shelving', 'dresser',
+    'bedside-tables', 'buffet', 'dresser', 'shelving',
     'outdoor-sofa', 'outdoor-armchair', 'outdoor-tables', 'outdoor-beds', 'swings', 'lounger',
     'vases', 'sculptures',
     'mirrors', 'wall-accents',
     'glass', 'plates',
-    'outdoor-decor'
+    'outdoor-decor',
+    'lighting',
+    'interior-materials'
 ];
 
 let currentGalleryProducts = [];
@@ -502,10 +555,10 @@ function closeModal(modalId) {
 
 function isParentCategory(parent, child) {
     const map = {
-        'furniture': ['soft-furniture', 'chairs', 'bar-stools', 'armchairs', 'sofas', 'beds', 'tables', 'dining-tables', 'coffee-tables', 'cabinets', 'bedside-tables', 'buffet', 'shelving', 'dresser', 'outdoor-furniture', 'outdoor-sofa', 'outdoor-armchair', 'outdoor-tables', 'outdoor-beds', 'swings', 'lounger'],
+        'furniture': ['soft-furniture', 'chairs', 'bar-stools', 'armchairs', 'sofas', 'beds', 'tables', 'dining-tables', 'coffee-tables', 'cabinets', 'bedside-tables', 'buffet', 'dresser', 'shelving', 'outdoor-furniture', 'outdoor-sofa', 'outdoor-armchair', 'outdoor-tables', 'outdoor-beds', 'swings', 'lounger'],
         'soft-furniture': ['chairs', 'bar-stools', 'armchairs', 'sofas', 'beds'],
         'tables': ['dining-tables', 'coffee-tables'],
-        'cabinets': ['bedside-tables', 'buffet', 'shelving', 'dresser'],
+        'cabinets': ['bedside-tables', 'buffet', 'dresser', 'shelving'],
         'outdoor-furniture': ['outdoor-sofa', 'outdoor-armchair', 'outdoor-tables', 'outdoor-beds', 'swings', 'lounger'],
         'decor': ['decorative-objects', 'vases', 'sculptures', 'wall-decor', 'mirrors', 'wall-accents', 'tableware', 'glass', 'plates', 'outdoor-decor'],
         'decorative-objects': ['vases', 'sculptures'],
@@ -516,7 +569,7 @@ function isParentCategory(parent, child) {
 }
 
 function updateHeaderVisibility() {
-    const mainGroups = ['furniture-group', 'decor-group'];
+    const mainGroups = ['furniture-group', 'decor-group', 'lighting-group', 'interior-materials-group'];
 
     mainGroups.forEach(groupId => {
         const group = document.getElementById(groupId);

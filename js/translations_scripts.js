@@ -56,6 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+
+    // Update img alt from data-translate-alt
+    document.querySelectorAll('[data-translate-alt]').forEach(element => {
+      const key = element.getAttribute('data-translate-alt');
+      if (translations[lang] && translations[lang][key]) {
+        element.alt = translations[lang][key];
+      }
+    });
+
+    // Update aria-label from data-translate-aria-label
+    document.querySelectorAll('[data-translate-aria-label]').forEach(element => {
+      const key = element.getAttribute('data-translate-aria-label');
+      if (translations[lang] && translations[lang][key]) {
+        element.setAttribute('aria-label', translations[lang][key]);
+      }
+    });
     
     // Update html lang attribute
     document.documentElement.lang = lang;

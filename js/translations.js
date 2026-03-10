@@ -12,6 +12,7 @@ const translations = {
     "project-details": "Подробнее о проекте",
     "write-us": "Написать",
     "scan-qr": "Отсканируйте",
+    "aria-menu": "Меню",
 
     // Hero section
     "hero-furniture": "Мебель",
@@ -83,6 +84,11 @@ const translations = {
     "project-hangzhou-feature-design": "Авторские дизайн-решения",
     "project-hangzhou-feature-materials": "Качественные отделочные материалы",
     "project-hangzhou-feature-smart": "Эргономика и функциональность",
+    "about-image-alt": "О компании PANZZi",
+    "project-lazy-bar-alt": "Lazy Bar — проект оснащения бара под ключ",
+    "project-mom-restaurant-alt": "MOM ресторан в Шанхае — комплексное оснащение",
+    "project-panzzi-showroom-alt": "Showroom Panzzi в Шанхае — выставочное пространство",
+    "project-villa-alt": "Частная вилла — оснащение под ключ",
 
     // Why Choose Us section
     "section-approach": "Наш подход",
@@ -231,6 +237,7 @@ const translations = {
     "project-details": "Project details",
     "write-us": "Write to us",
     "scan-qr": "Scan QR code",
+    "aria-menu": "Menu",
 
     // Hero section
     "hero-furniture": "Furniture",
@@ -302,6 +309,11 @@ const translations = {
     "project-hangzhou-feature-design": "Custom design solutions",
     "project-hangzhou-feature-materials": "High-quality finishing materials",
     "project-hangzhou-feature-smart": "Ergonomics & functionality",
+    "about-image-alt": "About PANZZi",
+    "project-lazy-bar-alt": "Lazy Bar — turnkey bar equipment project",
+    "project-mom-restaurant-alt": "MOM Restaurant in Shanghai — comprehensive equipment",
+    "project-panzzi-showroom-alt": "PANZZi Showroom in Shanghai — exhibition space",
+    "project-villa-alt": "Private villa — turnkey equipment",
 
     // Why Choose Us section
     "section-approach": "Our approach",

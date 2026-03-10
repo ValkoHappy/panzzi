@@ -274,6 +274,14 @@
     padding-left: 20px;
 }
 
+/* Сдвиг при скролле к якорю: цель не прилипает к верху, остаётся 25% высоты экрана сверху */
+#tableware-header,
+#lighting-section,
+#furniture-group,
+#interior-materials-section {
+    scroll-margin-top: 25vh;
+}
+
 .catalog-group {
     margin-bottom: 25px;
 }

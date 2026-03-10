@@ -358,6 +358,17 @@ const products = [
     })),
     { id: 976, category: 'wall-accents', title: 'Настенный декор 7', img: 'imgs/cataloge/стена66.png' },
 
+    // Декор -> Поставка посуды (галерея с главной)
+    { id: 1050, category: 'dishes', title: 'Посуда 1', img: 'content/services/dishes/photo_1_2025-07-06_13-26-00.jpg' },
+    { id: 1051, category: 'dishes', title: 'Посуда 2', img: 'content/services/dishes/photo_2_2025-07-06_13-26-00.jpg' },
+    { id: 1052, category: 'dishes', title: 'Посуда 3', img: 'content/services/dishes/photo_3_2025-07-06_13-26-00.jpg' },
+    { id: 1053, category: 'dishes', title: 'Посуда 4', img: 'content/services/dishes/photo_4_2025-07-06_13-26-00.jpg' },
+    { id: 1054, category: 'dishes', title: 'Посуда 5', img: 'content/services/dishes/photo_5_2025-07-06_13-26-00.jpg' },
+    { id: 1055, category: 'dishes', title: 'Посуда 6', img: 'content/services/dishes/photo_6_2025-07-06_13-26-00.jpg' },
+    { id: 1056, category: 'dishes', title: 'Посуда 7', img: 'content/services/dishes/photo_7_2025-07-06_13-26-00.jpg' },
+    { id: 1057, category: 'dishes', title: 'Посуда 8', img: 'content/services/dishes/photo_8_2025-07-06_13-26-00.jpg' },
+    { id: 1058, category: 'dishes', title: 'Посуда 9', img: 'content/services/dishes/photo_9_2025-07-06_13-26-00.jpg' },
+
     // Декор -> Стекло
     ...[1, 2, 3, 4, 7, 8].map((n, i) => ({
         id: 980 + i, category: 'glass', title: `Стекло ${i + 1}`, img: `imgs/cataloge/глас${n}.png`
@@ -382,9 +393,23 @@ const products = [
     { id: 1105, category: 'lighting', title: 'Освещение 6', img: 'content/services/lighting/photo_6_2025-07-06_13-34-13.jpg' },
     { id: 1106, category: 'lighting', title: 'Освещение 7', img: 'content/services/lighting/photo_7_2025-07-06_13-34-13.jpg' },
 
-    // Материалы для интерьера
-    ...Array.from({ length: 9 }, (_, i) => ({
-        id: 1200 + i, category: 'interior-materials', title: `Материалы для интерьера ${i + 1}`, img: `imgs/cataloge/Материалы для интерьера${i + 1}.png`
+    // Материалы для интерьера: сначала фото из галереи главной (14), потом карточки каталога (12)
+    { id: 1200, category: 'interior-materials', title: 'Материал 1', img: 'content/services/materials/photo_1_2025-07-06_13-38-58.jpg' },
+    { id: 1201, category: 'interior-materials', title: 'Материал 2', img: 'content/services/materials/photo_2_2025-07-06_13-38-58.jpg' },
+    { id: 1202, category: 'interior-materials', title: 'Материал 3', img: 'content/services/materials/photo_3_2025-07-06_13-38-58.jpg' },
+    { id: 1203, category: 'interior-materials', title: 'Материал 4', img: 'content/services/materials/photo_4_2025-07-06_13-38-58.jpg' },
+    { id: 1204, category: 'interior-materials', title: 'Материал 5', img: 'content/services/materials/photo_5_2025-07-06_13-38-58.jpg' },
+    { id: 1205, category: 'interior-materials', title: 'Материал 6', img: 'content/services/materials/photo_1_2025-07-20_18-14-14.jpg' },
+    { id: 1206, category: 'interior-materials', title: 'Материал 7', img: 'content/services/materials/photo_2_2025-07-20_18-14-14.jpg' },
+    { id: 1207, category: 'interior-materials', title: 'Материал 8', img: 'content/services/materials/photo_3_2025-07-20_18-14-14.jpg' },
+    { id: 1208, category: 'interior-materials', title: 'Материал 9', img: 'content/services/materials/photo_4_2025-07-20_18-14-14.jpg' },
+    { id: 1209, category: 'interior-materials', title: 'Материал 10', img: 'content/services/materials/photo_5_2025-07-20_18-14-14.jpg' },
+    { id: 1210, category: 'interior-materials', title: 'Материал 11', img: 'content/services/materials/photo_6_2025-07-20_18-14-14.jpg' },
+    { id: 1211, category: 'interior-materials', title: 'Материал 12', img: 'content/services/materials/photo_7_2025-07-20_18-14-14.jpg' },
+    { id: 1212, category: 'interior-materials', title: 'Материал 13', img: 'content/services/materials/photo_8_2025-07-20_18-14-14.jpg' },
+    { id: 1213, category: 'interior-materials', title: 'Материал 14', img: 'content/services/materials/photo_9_2025-07-20_18-14-14.jpg' },
+    ...Array.from({ length: 12 }, (_, i) => ({
+        id: 1214 + i, category: 'interior-materials', title: `Материалы для интерьера ${i + 1}`, img: `imgs/cataloge/Материалы для интерьера${i + 1}.png`
     })),
 ];
 
@@ -396,7 +421,7 @@ const categories = [
     'outdoor-sofa', 'outdoor-armchair', 'outdoor-tables', 'outdoor-beds', 'swings', 'lounger',
     'vases', 'sculptures',
     'mirrors', 'wall-accents',
-    'glass', 'plates',
+    'dishes', 'glass', 'plates',
     'outdoor-decor',
     'lighting',
     'interior-materials'

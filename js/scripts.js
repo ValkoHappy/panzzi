@@ -414,13 +414,15 @@ function handleGalleryOpen(element) {
   }
 }
 
-// Initialize gallery buttons and links
+// Initialize gallery buttons and links (только элементы с data-gallery открывают галерею; остальные — обычные ссылки)
 document.querySelectorAll(".btn-gallery, a[data-gallery]").forEach((element) => {
   element.addEventListener("click", function (e) {
-    if (element.tagName.toLowerCase() === "a") {
+    const galleryKey = element.getAttribute("data-gallery");
+    if (galleryKey) {
       e.preventDefault();
+      handleGalleryOpen(this);
     }
-    handleGalleryOpen(this);
+    // если нет data-gallery — не мешаем переходу по href
   });
 });
 

@@ -811,6 +811,10 @@ section {
   flex-grow: 1; /* Добавлено для выравнивания кнопок */
 }
 
+.service-item .btn {
+  padding: 8px 28px;
+}
+
 /* Gallery Modal */
 .modal {
   display: none;

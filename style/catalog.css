@@ -124,6 +124,13 @@
     transition: opacity 0.3s ease;
 }
 
+/* Компактное меню «Свет» — одна колонка */
+.category-dropdown.dropdown-lighting .dropdown-menu {
+    min-width: 320px;
+    width: max-content;
+    grid-template-columns: 1fr;
+}
+
 /* Add padding area to prevent menu from closing */
 .dropdown-menu::before {
     content: '';
@@ -277,6 +284,7 @@
 /* Сдвиг при скролле к якорю: цель не прилипает к верху, остаётся 25% высоты экрана сверху */
 #tableware-header,
 #lighting-section,
+#lighting-group,
 #furniture-group,
 #interior-materials-section {
     scroll-margin-top: 25vh;
@@ -307,6 +315,12 @@
     width: 90%;
     max-width: 1080px;
     margin: 0 auto;
+}
+
+/* Один слайд — кнопки и точки не показываем */
+.map-slider-container.map-slider-single .map-nav-btn,
+.map-slider-container.map-slider-single .map-dots {
+    display: none !important;
 }
 
 .map-slides {

@@ -52,15 +52,21 @@ if (burgerMenu && navMenu) {
     }
 }
 
-// Navbar scroll effect
+// Navbar scroll effect (throttled for performance)
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-    if (navbar) {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         }
-    }
+        scrollTicking = false;
+    });
 });
 
 // ======================================
@@ -384,14 +390,23 @@ const products = [
         id: 1020 + i, category: 'outdoor-decor', title: `Уличный декор ${i + 1}`, img: `imgs/cataloge/улицадекор${i + 1}.png`
     })),
 
-    // Свет (из галереи на главной странице)
-    { id: 1100, category: 'lighting', title: 'Освещение 1', img: 'content/services/lighting/photo_1_2025-07-06_13-34-13.jpg' },
-    { id: 1101, category: 'lighting', title: 'Освещение 2', img: 'content/services/lighting/photo_2_2025-07-06_13-34-13.jpg' },
-    { id: 1102, category: 'lighting', title: 'Освещение 3', img: 'content/services/lighting/photo_3_2025-07-06_13-34-13.jpg' },
-    { id: 1103, category: 'lighting', title: 'Освещение 4', img: 'content/services/lighting/photo_4_2025-07-06_13-34-13.jpg' },
-    { id: 1104, category: 'lighting', title: 'Освещение 5', img: 'content/services/lighting/photo_5_2025-07-06_13-34-13.jpg' },
-    { id: 1105, category: 'lighting', title: 'Освещение 6', img: 'content/services/lighting/photo_6_2025-07-06_13-34-13.jpg' },
-    { id: 1106, category: 'lighting', title: 'Освещение 7', img: 'content/services/lighting/photo_7_2025-07-06_13-34-13.jpg' },
+    // Свет
+    // Освещение
+    ...Array.from({ length: 6 }, (_, i) => ({
+        id: 1100 + i, category: 'lighting', title: `Освещение ${i + 1}`, img: `imgs/cataloge/настеная${i + 1}.png`
+    })),
+    // Подвесной свет
+    ...Array.from({ length: 13 }, (_, i) => ({
+        id: 1120 + i, category: 'lighting-pendant', title: `Подвесной свет ${i + 1}`, img: `imgs/cataloge/люстра${i + 1}.png`
+    })),
+    // Настольные лампы
+    ...Array.from({ length: 5 }, (_, i) => ({
+        id: 1140 + i, category: 'lighting-table', title: `Настольная лампа ${i + 1}`, img: `imgs/cataloge/настольная${i + 1}.png`
+    })),
+    // Торшеры
+    ...Array.from({ length: 5 }, (_, i) => ({
+        id: 1160 + i, category: 'lighting-floor', title: `Торшер ${i + 1}`, img: `imgs/cataloge/торшер${i + 1}.png`
+    })),
 
     // Материалы для интерьера: сначала фото из галереи главной (14), потом карточки каталога (12)
     { id: 1200, category: 'interior-materials', title: 'Материал 1', img: 'content/services/materials/photo_1_2025-07-06_13-38-58.jpg' },
@@ -424,6 +439,9 @@ const categories = [
     'dishes', 'glass', 'plates',
     'outdoor-decor',
     'lighting',
+    'lighting-pendant',
+    'lighting-table',
+    'lighting-floor',
     'interior-materials'
 ];
 
@@ -440,7 +458,7 @@ function renderProducts(filter = 'all', searchQuery = '') {
 
         const filteredProducts = products.filter(p => {
             const matchesCat = (filter === 'all' || filter === p.category || isParentCategory(filter, p.category));
-            const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesSearch = p.title.toLowerCase().includes((searchQuery || '').toLowerCase());
             return matchesCat && matchesSearch && p.category === cat;
         });
 
@@ -451,7 +469,7 @@ function renderProducts(filter = 'all', searchQuery = '') {
                 card.className = 'product-card fade-in';
                 card.innerHTML = `
                     <div class="product-img">
-                        <img src="${p.img}" alt="${p.title}" loading="lazy">
+                        <img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async">
                     </div>
                 `;
                 card.addEventListener('click', () => openGallery(filteredProducts, p.id));
@@ -462,7 +480,6 @@ function renderProducts(filter = 'all', searchQuery = '') {
         }
     });
 
-    // Handle high-level title visibility
     updateHeaderVisibility();
 }
 
@@ -622,6 +639,7 @@ function updateHeaderVisibility() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Рендерим все секции при загрузке — карточки и картинки появятся сразу (картинки с loading="lazy" подгрузятся по мере скролла)
     renderProducts();
 
     // Gallery event listeners

@@ -137,7 +137,7 @@ const translations = {
     "footer-contacts": "Контакты",
     "footer-address":
       "Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai 158 2174 4928",
-    "footer-rights": "© 2025 PANZZi. Все права защищены.",
+    "footer-rights": "© 2026 PANZZi. Все права защищены.",
 
     // Clients
     "clients-page-title": "PANZZi - Информация для клиентов",
@@ -362,7 +362,7 @@ const translations = {
     "footer-contacts": "Contacts",
     "footer-address":
       "Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai 158 2174 4928",
-    "footer-rights": "© 2025 PANZZi. All rights reserved.",
+    "footer-rights": "© 2026 PANZZi. All rights reserved.",
 
     // Clients
     "clients-page-title": "PANZZi - Client Information",

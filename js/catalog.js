@@ -639,31 +639,32 @@ function updateHeaderVisibility() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Рендерим все секции при загрузке — карточки и картинки появятся сразу (картинки с loading="lazy" подгрузятся по мере скролла)
+    // Рендерим все секции при загрузке — карточки и картинки появятся сразу
     renderProducts();
 
-    // Gallery event listeners
-    document.querySelector('.close-modal').addEventListener('click', () => closeModal('gallery-modal'));
-    document.querySelector('.gallery-prev').addEventListener('click', () => {
+    // Gallery event listeners (проверка наличия элементов — не падаем при изменении разметки)
+    const closeBtn = document.querySelector('.close-modal');
+    const galleryPrev = document.querySelector('.gallery-prev');
+    const galleryNext = document.querySelector('.gallery-next');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modalContent = document.querySelector('.gallery-modal-content');
+
+    if (closeBtn) closeBtn.addEventListener('click', () => closeModal('gallery-modal'));
+    if (galleryPrev) galleryPrev.addEventListener('click', () => {
         const newIndex = (currentGalleryIndex - 1 + currentGalleryProducts.length) % currentGalleryProducts.length;
         updateGallery(newIndex);
     });
-    document.querySelector('.gallery-next').addEventListener('click', () => {
+    if (galleryNext) galleryNext.addEventListener('click', () => {
         const newIndex = (currentGalleryIndex + 1) % currentGalleryProducts.length;
         updateGallery(newIndex);
     });
-
-    // Close on click outside
-    document.querySelector('.modal-overlay').addEventListener('click', () => closeModal('gallery-modal'));
-
-    // Prevent closing when clicking inside modal
-    document.querySelector('.gallery-modal-content').addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
+    if (modalOverlay) modalOverlay.addEventListener('click', () => closeModal('gallery-modal'));
+    if (modalContent) modalContent.addEventListener('click', (e) => e.stopPropagation());
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (document.getElementById('gallery-modal').style.display === 'flex') {
+        const galleryModal = document.getElementById('gallery-modal');
+        if (galleryModal && galleryModal.style.display === 'flex') {
             if (e.key === 'ArrowRight') {
                 const newIndex = (currentGalleryIndex + 1) % currentGalleryProducts.length;
                 updateGallery(newIndex);

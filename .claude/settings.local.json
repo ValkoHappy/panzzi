@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /b/Проекты/PANZZI/style/*.css /b/Проекты/PANZZI/js/*.js)"
+    ]
+  }
+}

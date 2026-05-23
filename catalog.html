@@ -49,7 +49,7 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /></noscript>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/style.css?v=20260523-10" />
     <link rel="stylesheet" href="style/catalog.css" />
 </head>
 
@@ -80,6 +80,9 @@
                         <a href="index.html#why-choose-us" class="nav-link" data-translate="nav-why-us">Почему мы</a>
                     </li>
                     <li class="nav-item">
+                        <a href="china-entry.html" class="nav-link" data-translate="nav-china-entry">Запуск в Китае</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="clients.html" class="nav-link" data-translate="nav-clients">Для клиентов</a>
                     </li>
                     <li class="nav-item">
@@ -89,7 +92,13 @@
             </nav>
 
             <div class="nav-actions">
-                <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
+                <div class="language-selector" id="language-selector">
+                    <button id="language-toggle" class="lang-btn" data-lang="ru" type="button" aria-haspopup="listbox" aria-expanded="false">RU</button>
+                    <div class="language-menu" id="language-menu" role="listbox" aria-label="Language">
+                        <button type="button" class="language-option" data-language="ru" role="option">RU</button>
+                        <button type="button" class="language-option" data-language="en" role="option">EN</button>
+                    </div>
+                </div>
                 <button class="burger-menu" id="burger-menu" aria-label="Меню" data-translate-aria-label="aria-menu">
                     <span class="burger-line"></span>
                     <span class="burger-line"></span>
@@ -110,6 +119,36 @@
                 <h1 class="logo" data-translate="catalog-title">Каталог</h1>
                 <p class="catalog-subtitle" data-translate="catalog-subtitle">Эксклюзивная мебель для вашего интерьера
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Intro -->
+    <section class="catalog-intro">
+        <div class="container">
+            <span class="section-subtitle text-center" data-translate="catalog-intro-eyebrow">Направления каталога</span>
+            <h2 class="section-title text-center" data-translate="catalog-intro-title">Что можно подобрать с PANZZi</h2>
+            <div class="catalog-intro-grid">
+                <a href="#furniture-group" class="catalog-intro-card">
+                    <i class="fas fa-couch"></i>
+                    <h3 data-translate="catalog-intro-furniture-title">Furniture</h3>
+                    <p data-translate="catalog-intro-furniture-desc">Мебель для ресторанов, отелей, вилл и частных проектов.</p>
+                </a>
+                <a href="#tableware-header" class="catalog-intro-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3 data-translate="catalog-intro-tableware-title">Tableware</h3>
+                    <p data-translate="catalog-intro-tableware-desc">Посуда, стекло и сервировка для профессионального сегмента.</p>
+                </a>
+                <a href="#lighting-section" class="catalog-intro-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3 data-translate="catalog-intro-lighting-title">Lighting</h3>
+                    <p data-translate="catalog-intro-lighting-desc">Интерьерный свет, подвесные светильники, лампы и торшеры.</p>
+                </a>
+                <a href="#interior-materials-section" class="catalog-intro-card">
+                    <i class="fas fa-th-large"></i>
+                    <h3 data-translate="catalog-intro-materials-title">Interior materials</h3>
+                    <p data-translate="catalog-intro-materials-desc">Отделочные материалы для комплексного оснащения пространства.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -1436,6 +1475,7 @@
                         <li><a href="index.html#about" data-translate="nav-about">О компании</a></li>
                         <li><a href="index.html#services" data-translate="nav-services">Услуги</a></li>
                         <li><a href="index.html#projects" data-translate="nav-projects">Проекты</a></li>
+                        <li><a href="china-entry.html" data-translate="nav-china-entry">Запуск в Китае</a></li>
                         <li><a href="index.html#contacts" data-translate="nav-contacts">Контакты</a></li>
                     </ul>
                 </div>
@@ -1485,7 +1525,7 @@
 
     <!-- Scripts (defer, ?v= сбрасывает кэш после деплоя) -->
     <script src="js/translations.js?v=20260310" defer></script>
-    <script src="js/translations_scripts.js?v=20260310" defer></script>
+    <script src="js/translations_scripts.js?v=20260527-1" defer></script>
     <script src="js/catalog.js?v=20260320" defer></script>
 </body>
 

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="supported-languages" content="ru, en" />
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -45,7 +46,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/style.css?v=20260523-10" />
 </head>
 
 <body>
@@ -75,6 +76,9 @@
             <a href="catalog.html" class="nav-link" data-translate="nav-catalog">Каталог</a>
           </li>
           <li class="nav-item">
+            <a href="china-entry.html" class="nav-link" data-translate="nav-china-entry">Запуск в Китае</a>
+          </li>
+          <li class="nav-item">
             <a href="clients.html" class="nav-link active" data-translate="nav-clients">Для клиентов</a>
           </li>
           <li class="nav-item">
@@ -84,7 +88,13 @@
       </nav>
 
       <div class="nav-actions">
-        <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
+        <div class="language-selector" id="language-selector">
+          <button id="language-toggle" class="lang-btn" data-lang="ru" type="button" aria-haspopup="listbox" aria-expanded="false">RU</button>
+          <div class="language-menu" id="language-menu" role="listbox" aria-label="Language">
+            <button type="button" class="language-option" data-language="ru" role="option">RU</button>
+            <button type="button" class="language-option" data-language="en" role="option">EN</button>
+          </div>
+        </div>
         <button class="burger-menu" id="burger-menu" aria-label="Меню" data-translate-aria-label="aria-menu">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
@@ -281,6 +291,9 @@
               <a href="index.html#why-choose-us" data-translate="nav-why-us">Почему мы</a>
             </li>
             <li>
+              <a href="china-entry.html" data-translate="nav-china-entry">Запуск в Китае</a>
+            </li>
+            <li>
               <a href="index.html#contacts" data-translate="nav-contacts">Контакты</a>
             </li>
           </ul>
@@ -316,7 +329,7 @@
 
   <script src="js/scripts.js" defer></script>
   <script src="js/translations.js" defer></script>
-  <script src="js/translations_scripts.js" defer></script>
+  <script src="js/translations_scripts.js?v=20260527-1" defer></script>
 </body>
 
 </html>

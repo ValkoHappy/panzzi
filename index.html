@@ -24,7 +24,7 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="PANZZi — премиум мебель, освещение, посуда и материалы для интерьера из Китая. Оснащаем рестораны, отели, виллы под ключ. 20 лет опыта в F&B индустрии." />
+    content="PANZZi — премиум мебель, освещение, посуда и материалы для интерьера из Китая. Оснащаем рестораны, отели и виллы под ключ на основе 20-летнего опыта Anna Vei в F&B-индустрии." />
   <meta name="keywords"
     content="мебель из Китая, посуда для ресторанов, освещение, интерьер отеля, оснащение ресторана, PANZZi, мебель для HoReCa, дизайнерская мебель" />
   <meta name="author" content="PANZZi" />
@@ -40,7 +40,7 @@
   <meta property="og:url" content="https://panzzi.com/" />
   <meta property="og:title" content="PANZZi — Премиум мебель и материалы из Китая" />
   <meta property="og:description"
-    content="Оснащаем рестораны, отели, виллы под ключ. Мебель, освещение, посуда, материалы для интерьера. 20 лет опыта." />
+    content="Оснащаем рестораны, отели и виллы под ключ: мебель, освещение, посуда и материалы из Китая на основе 20-летнего опыта Anna Vei в F&B." />
   <meta property="og:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:locale:alternate" content="en_US" />
@@ -97,7 +97,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/style.css?v=20260523-10" />
 </head>
 
 <body>
@@ -127,6 +127,9 @@
             <a href="#why-choose-us" class="nav-link" data-translate="nav-why-us">Почему мы</a>
           </li>
           <li class="nav-item">
+            <a href="china-entry.html" class="nav-link" data-translate="nav-china-entry">Запуск в Китае</a>
+          </li>
+          <li class="nav-item">
             <a href="clients.html" class="nav-link" data-translate="nav-clients">Для клиентов</a>
           </li>
           <li class="nav-item">
@@ -136,7 +139,13 @@
       </nav>
 
       <div class="nav-actions">
-        <button id="language-toggle" class="lang-btn" data-lang="ru">EN</button>
+        <div class="language-selector" id="language-selector">
+          <button id="language-toggle" class="lang-btn" data-lang="ru" type="button" aria-haspopup="listbox" aria-expanded="false">RU</button>
+          <div class="language-menu" id="language-menu" role="listbox" aria-label="Language">
+            <button type="button" class="language-option" data-language="ru" role="option">RU</button>
+            <button type="button" class="language-option" data-language="en" role="option">EN</button>
+          </div>
+        </div>
         <button class="burger-menu" id="burger-menu" aria-label="Меню" data-translate-aria-label="aria-menu">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
@@ -202,11 +211,10 @@
       <div class="about-content">
         <div class="about-text">
           <p data-translate="about-text-1">
-            20 лет в F&B - от ресторанного бизнеса до оснащения пространств.
+            PANZZi основан на 20-летнем опыте Anna Vei в F&B-индустрии.
           </p>
           <p data-translate="about-text-2">
-            Мы знаем, как каждое решение влияет на повседневную работу,
-            атмосферу и восприятие бренда.
+            Мы знаем ресторанный бизнес изнутри и понимаем, как каждое решение в интерьере влияет на сервис, атмосферу и восприятие бренда.
           </p>
           <p data-translate="about-text-3">
             Сегодня мы помогаем ресторанам, отелям, виллам и частным проектам
@@ -290,6 +298,25 @@
           </p>
           <a href="#projects" class="btn btn-gallery" data-translate="view-gallery">
             Смотреть решения
+          </a>
+        </div>
+        <div class="service-item service-item-featured">
+          <div class="service-icon"><i class="fas fa-globe-asia"></i></div>
+          <div class="service-featured-content">
+            <h3 class="service-title" data-translate="service-china-entry">
+              Запуск в Китае
+            </h3>
+            <p class="service-description" data-translate="service-china-entry-desc">
+              Полный цикл открытия ресторана, отеля или объекта в Китае: документы, дизайн, строительство и запуск
+            </p>
+            <div class="service-feature-points">
+              <span data-translate="service-china-entry-point-1">Документы</span>
+              <span data-translate="service-china-entry-point-2">Проектирование</span>
+              <span data-translate="service-china-entry-point-3">Операционный запуск</span>
+            </div>
+          </div>
+          <a href="china-entry.html" class="btn btn-gallery" data-translate="service-china-entry-button">
+            Открыть объект в Китае
           </a>
         </div>
       </div>
@@ -518,40 +545,19 @@
       <div class="reasons-list animate fade-in delay-2">
         <ul>
           <li data-translate="advantage-1">
-            Качество фабрик, с которыми работаем — проверено годами
+            Проверенные фабрики профессионального сегмента — не масс-маркет
           </li>
           <li data-translate="advantage-2">
-            Продукты — не из масс-маркета, а из профессионального сегмента
+            Европейский уровень качества с китайской логистикой — ближе, быстрее, разумнее по цене
           </li>
           <li data-translate="advantage-3">
-            Мы не соревнуемся по цене, мы выигрываем по соотношению
-            "качество–ценность"
+            Полный цикл: концепция, дизайн, закупка, монтаж и сдача объекта
           </li>
           <li data-translate="advantage-4">
-            Знаем, где не стоит экономить — и где можно оптимизировать без
-            потери уровня
+            Реальные кейсы в Шанхае: MOM, Lazy Bar, шоурум PANZZi и виллы
           </li>
           <li data-translate="advantage-5">
-            Цена разумная. Качество — выше ожиданий
-          </li>
-          <li data-translate="advantage-6">
-            Мы не самые дешёвые — и в этом наше преимущество
-          </li>
-          <li data-translate="advantage-7">
-            То же качество, что в Европе. Только ближе и быстрее
-          </li>
-          <li data-translate="advantage-8">
-            Умные решения: достойные материалы, уверенные поставки, реальный
-            контроль
-          </li>
-          <li data-translate="advantage-9">
-            Для тех, кто ценит эстетику, надёжность и грамотный подход
-          </li>
-          <li data-translate="advantage-10">
-            Оснащение, которое работает на репутацию
-          </li>
-          <li data-translate="advantage-11">
-            С нами вы не переплатите за бренд, но получите уровень
+            Личный контроль качества и поставок на каждом этапе
           </li>
         </ul>
       </div>
@@ -610,6 +616,22 @@
             <a href="#" class="contact-link" data-gallery="wechat" data-translate="scan-qr">Отсканируйте</a>
           </div>
         </div>
+
+        <div class="contact-map" aria-label="PANZZi Shanghai office map">
+          <div class="contact-map-info">
+            <span data-translate="map-eyebrow">Shanghai office</span>
+            <h3 data-translate="map-title">PANZZi на карте</h3>
+            <p data-translate="map-address">Office 107, Building 8, No. 50 Moganshan Road, Putuo District, Shanghai</p>
+          </div>
+          <iframe
+            title="PANZZi Shanghai office map"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=121.4248%2C31.2399%2C121.4648%2C31.2599&amp;layer=mapnik&amp;marker=31.249975%2C121.444802"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="contact-map-link" href="https://www.openstreetmap.org/?mlat=31.249975&amp;mlon=121.444802#map=15/31.249975/121.444802" target="_blank" rel="noopener" data-translate="map-open">
+            Открыть карту
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -637,6 +659,9 @@
             </li>
             <li>
               <a href="#why-choose-us" data-translate="nav-why-us">Почему мы</a>
+            </li>
+            <li>
+              <a href="china-entry.html" data-translate="nav-china-entry">Запуск в Китае</a>
             </li>
             <li>
               <a href="#contacts" data-translate="nav-contacts">Контакты</a>
@@ -673,7 +698,7 @@
   </footer>
   <script src="js/scripts.js" defer></script>
   <script src="js/translations.js" defer></script>
-  <script src="js/translations_scripts.js" defer></script>
+  <script src="js/translations_scripts.js?v=20260527-1" defer></script>
 </body>
 
 </html>

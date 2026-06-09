@@ -21,7 +21,7 @@
 
 .china-entry-why{background:var(--color-white)!important}.contact-map iframe{height:calc(100% + 64px);transform:none;transform-origin:center top}.contact-map::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.96));pointer-events:none;z-index:1}.contact-map-info,.contact-map-link{z-index:2}
 
-.contact-map::before{content:"";position:absolute;left:50%;top:49.5%;width:18px;height:18px;border-radius:50%;background:#e53935;border:3px solid var(--color-white);box-shadow:0 0 0 8px rgba(229,57,53,.18),0 8px 18px rgba(0,0,0,.28);transform:translate(-50%,-50%);pointer-events:none;z-index:2}
+.contact-map::before{content:"";position:absolute;left:50%;top:49.5%;width:34px;height:44px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='44' viewBox='0 0 34 44'%3E%3Cpath d='M17 43C13.2 36.9 3 25.9 3 16.9 3 8.6 9.3 2 17 2s14 6.6 14 14.9C31 25.9 20.8 36.9 17 43Z' fill='%23e53935' stroke='%23fff' stroke-width='3'/%3E%3Ccircle cx='17' cy='17' r='6.4' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 9px 16px rgba(0,0,0,.3));transform:translate(-50%,-100%);pointer-events:none;z-index:2}
 
 .china-entry-process{background:var(--color-white)!important}.china-entry-process::before{display:none!important}
 

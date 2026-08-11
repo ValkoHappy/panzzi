@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const languages = ["ru", "en"];
+  const languages = ["ru", "en", "de", "zh"];
   const languageLabels = {
     ru: "RU",
     en: "EN",
+    de: "DE",
     zh: "中文",
   };
 
@@ -64,6 +65,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    document.querySelectorAll("[data-translate-title]").forEach(function (element) {
+      const key = element.getAttribute("data-translate-title");
+      if (dictionary[key] || fallback[key]) {
+        element.setAttribute("title", dictionary[key] || fallback[key]);
+      }
+    });
+
+    document.querySelectorAll("[data-translate-content]").forEach(function (element) {
+      const key = element.getAttribute("data-translate-content");
+      if (dictionary[key] || fallback[key]) {
+        element.setAttribute("content", dictionary[key] || fallback[key]);
+      }
+    });
+
     const translatedTitle = document.querySelector("title[data-translate]");
     if (translatedTitle) {
       const key = translatedTitle.getAttribute("data-translate");
@@ -73,6 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.documentElement.lang = language === "zh" ? "zh-CN" : language;
+
+    const openGraphLocale = document.querySelector('meta[property="og:locale"]');
+    if (openGraphLocale) {
+      const locales = { ru: "ru_RU", en: "en_US", de: "de_DE", zh: "zh_CN" };
+      openGraphLocale.setAttribute("content", locales[language] || locales.ru);
+    }
   }
 
   function updateLanguageSelector(language) {

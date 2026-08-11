@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="supported-languages" content="ru, en" />
+  <meta name="supported-languages" content="ru, en, de, zh" />
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -23,9 +23,9 @@
   <!-- /Yandex.Metrika counter -->
 
   <!-- SEO Meta Tags -->
-  <meta name="description"
+  <meta name="description" data-translate-content="main-page-description"
     content="PANZZi — премиум мебель, освещение, посуда и материалы для интерьера из Китая. Оснащаем рестораны, отели и виллы под ключ на основе 20-летнего опыта Anna Vei в F&B-индустрии." />
-  <meta name="keywords"
+  <meta name="keywords" data-translate-content="main-page-keywords"
     content="мебель из Китая, посуда для ресторанов, освещение, интерьер отеля, оснащение ресторана, PANZZi, мебель для HoReCa, дизайнерская мебель" />
   <meta name="author" content="PANZZi" />
   <meta name="robots" content="index, follow" />
@@ -38,8 +38,8 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://panzzi.com/" />
-  <meta property="og:title" content="PANZZi — Премиум мебель и материалы из Китая" />
-  <meta property="og:description"
+  <meta property="og:title" data-translate-content="page-title" content="PANZZi — Премиум мебель и материалы из Китая" />
+  <meta property="og:description" data-translate-content="main-page-description"
     content="Оснащаем рестораны, отели и виллы под ключ: мебель, освещение, посуда и материалы из Китая на основе 20-летнего опыта Anna Vei в F&B." />
   <meta property="og:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
   <meta property="og:locale" content="ru_RU" />
@@ -47,8 +47,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PANZZi — Премиум мебель и материалы из Китая" />
-  <meta name="twitter:description" content="Оснащаем рестораны, отели, виллы под ключ. Мебель, освещение, посуда." />
+  <meta name="twitter:title" data-translate-content="page-title" content="PANZZi — Премиум мебель и материалы из Китая" />
+  <meta name="twitter:description" data-translate-content="main-page-description" content="Оснащаем рестораны, отели, виллы под ключ. Мебель, освещение, посуда." />
   <meta name="twitter:image" content="https://panzzi.com/content/LOGO/logo-og.jpg" />
 
   <!-- Structured Data JSON-LD -->
@@ -141,9 +141,11 @@
       <div class="nav-actions">
         <div class="language-selector" id="language-selector">
           <button id="language-toggle" class="lang-btn" data-lang="ru" type="button" aria-haspopup="listbox" aria-expanded="false">RU</button>
-          <div class="language-menu" id="language-menu" role="listbox" aria-label="Language">
+          <div class="language-menu" id="language-menu" role="listbox" aria-label="Выбор языка" data-translate-aria-label="aria-language-selector">
             <button type="button" class="language-option" data-language="ru" role="option">RU</button>
             <button type="button" class="language-option" data-language="en" role="option">EN</button>
+            <button type="button" class="language-option" data-language="de" role="option">DE</button>
+            <button type="button" class="language-option" data-language="zh" role="option">中文</button>
           </div>
         </div>
         <button class="burger-menu" id="burger-menu" aria-label="Меню" data-translate-aria-label="aria-menu">
@@ -193,11 +195,11 @@
             <span data-translate="telegram">Telegram</span></a>
         </div>
         <div class="social-links">
-          <a href="https://instagram.com/panzzi_furniture"><i class="fab fa-instagram"></i></a>
-              <a href="mailto:panzzi@panzzi.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://instagram.com/panzzi_furniture" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="mailto:panzzi@panzzi.com" aria-label="Электронная почта" data-translate-aria-label="contact-email-title"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-      <aside class="hero-entry-cta fade-in delay-2" aria-label="Запуск бизнеса в Китае">
+      <aside class="hero-entry-cta fade-in delay-2" aria-label="Запуск бизнеса в Китае" data-translate-aria-label="hero-entry-title">
         <span class="hero-entry-kicker" data-translate="hero-entry-kicker">Новый маршрут</span>
         <h2 data-translate="hero-entry-title">Запуск бизнеса в Китае</h2>
         <p class="hero-entry-note" data-translate="hero-entry-note">Проект, ресторан, шоурум или бар</p>
@@ -340,14 +342,14 @@
     <div class="modal-overlay"></div>
     <div class="gallery-modal-content">
       <div class="modal-header">
-        <button class="close-modal">&times;</button>
+        <button class="close-modal" aria-label="Закрыть" data-translate-aria-label="aria-close">&times;</button>
       </div>
       <div class="main-gallery-container">
         <div class="main-gallery-slide">
-          <img src="" alt="Service Image" class="active-gallery-image" loading="lazy" />
+          <img src="" alt="Изображение услуги" data-translate-alt="service-image-alt" class="active-gallery-image" loading="lazy" />
         </div>
-        <button class="gallery-nav gallery-prev">&#10094;</button>
-        <button class="gallery-nav gallery-next">&#10095;</button>
+        <button class="gallery-nav gallery-prev" aria-label="Предыдущее изображение" data-translate-aria-label="aria-previous-image">&#10094;</button>
+        <button class="gallery-nav gallery-next" aria-label="Следующее изображение" data-translate-aria-label="aria-next-image">&#10095;</button>
       </div>
       <div class="gallery-thumbnails-container">
         <div class="gallery-thumbnails">
@@ -730,14 +732,15 @@
           </div>
         </div>
 
-        <div class="contact-map" aria-label="PANZZi Shanghai office map">
+        <div class="contact-map" aria-label="Карта офиса PANZZi в Шанхае" data-translate-aria-label="map-frame-title">
           <div class="contact-map-info">
             <span data-translate="map-eyebrow">Shanghai office</span>
             <h3 data-translate="map-title">PANZZi на карте</h3>
             <p data-translate="map-address">Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road, Putuo District, Shanghai</p>
           </div>
           <iframe
-            title="PANZZi Shanghai office map"
+            title="Карта офиса PANZZi в Шанхае"
+            data-translate-title="map-frame-title"
             src="https://www.openstreetmap.org/export/embed.html?bbox=121.4418%2C31.2479%2C121.4478%2C31.2520&amp;layer=mapnik&amp;marker=31.249975%2C121.444802"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>

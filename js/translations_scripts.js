@@ -23,9 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  const initialLanguage = window.__panzziInitialLanguage;
   const savedLanguage = readSavedLanguage();
   const browserLanguage = (navigator.language || "ru").slice(0, 2).toLowerCase();
-  let currentLanguage = languages.includes(savedLanguage)
+  let currentLanguage = languages.includes(initialLanguage)
+    ? initialLanguage
+    : languages.includes(savedLanguage)
     ? savedLanguage
     : languages.includes(browserLanguage)
       ? browserLanguage
@@ -135,6 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   applyTranslations(currentLanguage);
   updateLanguageSelector(currentLanguage);
+  document.documentElement.style.visibility = "";
+  document.documentElement.style.backgroundColor = "";
+  delete document.documentElement.dataset.i18nPending;
 
   if (languageButton) {
     languageButton.addEventListener("click", function (event) {

@@ -644,9 +644,9 @@ const translations = {
     "hero-materials": "室内材料",
     "hero-description": "为餐厅、酒店和别墅提供交钥匙设备解决方案",
     "section-about": "关于 PANZZi",
-    "about-text-1": "PANZZi 建立在 Anna Vei 20 年 F&B 行业经验之上。",
-    "about-text-2": "我们理解餐饮业务的真实运作，也知道每一个室内决策如何影响服务、氛围和品牌感知。",
-    "about-text-3": "我们为全球餐厅、酒店、别墅和私人项目提供来自中国优质工厂的家具、餐具、灯光和室内材料。",
+    "about-text-1": "PANZZi依托 Anna Vei 深耕餐饮行业20年的经验积淀创立。",
+    "about-text-2": "我们深谙餐饮业态的实际运营逻辑，清楚每一项室内方案决策，如何会直接影响服务体验、空间氛围与品牌形象感知。",
+    "about-text-3": "目前，我们面向全球餐厅、酒店、别墅及私属项目，供应家具、餐具、照明设备与建筑材料，全部产品均直采自国内经过严格筛选的优质制造商。",
     "section-services": "我们的服务",
     "section-what-we-do": "我们做什么",
     "service-dishes": "餐具供应",
@@ -1460,7 +1460,7 @@ Object.assign(translations.zh, {
   "hero-entry-kicker": "全新路径",
   "hero-entry-note": "项目、餐厅、展厅或酒吧",
   "hero-entry-button": "在中国启动业务",
-  "about-text-3": "如今，我们为全球的餐厅、酒店、别墅和私人项目提供家具、餐具、照明及建筑材料，所有产品均直接来自中国经过严格筛选的制造商。",
+  "about-text-3": "目前，我们面向全球餐厅、酒店、别墅及私属项目，供应家具、餐具、照明设备与建筑材料，全部产品均直采自国内经过严格筛选的优质制造商。",
   "service-lighting-desc": "适用于各类空间的设计师照明方案",
   "project-feature-porcelain": "独家高端瓷质餐具",
   "project-feature-design": "设计照明",
@@ -1587,6 +1587,70 @@ Object.assign(translations.zh, {
   "aria-next-slide": "下一张"
 });
 
+Object.assign(translations.ru, {
+  "hero-whatsapp-label": "WhatsApp · Германия",
+  "hero-whatsapp-href": "https://wa.me/4917628201382",
+  "contact-whatsapp-china": "WhatsApp · Китай",
+  "contact-whatsapp-germany": "WhatsApp · Германия",
+  "contact-center-china": "Центр PANZZi · Китай, Шанхай",
+  "contact-center-germany": "Партнёр PANZZi · Германия, Вайден",
+  "contact-germany-person": "Smirnov Alexey",
+  "contact-china-address": "Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road, Putuo District, Shanghai",
+  "contact-germany-address": "Im Pfarrweiher 14, 92637 Weiden i.d.OPf., Deutschland",
+  "contact-china-phone": "+86 187 2172 2664",
+  "contact-germany-phone": "+49 176 28201382",
+  "office-title": "Наши центры в Китае и Германии",
+  "office-description": "В Шанхае работает центр PANZZi, где можно увидеть и оценить материалы лично. В Германии проекты сопровождает наш партнёр Алексей Смирнов."
+});
+
+Object.assign(translations.en, {
+  "hero-whatsapp-label": "WhatsApp · China",
+  "hero-whatsapp-href": "https://wa.me/8618721722664",
+  "contact-whatsapp-china": "WhatsApp · China",
+  "contact-whatsapp-germany": "WhatsApp · Germany",
+  "contact-center-china": "PANZZi Center · Shanghai, China",
+  "contact-center-germany": "PANZZi Partner · Weiden, Germany",
+  "contact-germany-person": "Alexey Smirnov",
+  "contact-china-address": "Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road, Putuo District, Shanghai",
+  "contact-germany-address": "Im Pfarrweiher 14, 92637 Weiden i.d.OPf., Germany",
+  "contact-china-phone": "+86 187 2172 2664",
+  "contact-germany-phone": "+49 176 28201382",
+  "office-title": "Our centers in China and Germany",
+  "office-description": "The PANZZi center in Shanghai lets clients see and evaluate materials in person. In Germany, projects are supported by our partner Alexey Smirnov."
+});
+
+Object.assign(translations.de, {
+  "hero-whatsapp-label": "WhatsApp · Deutschland",
+  "hero-whatsapp-href": "https://wa.me/4917628201382",
+  "contact-whatsapp-china": "WhatsApp · China",
+  "contact-whatsapp-germany": "WhatsApp · Deutschland",
+  "contact-center-china": "PANZZi-Zentrum · Shanghai, China",
+  "contact-center-germany": "PANZZi-Partner · Weiden, Deutschland",
+  "contact-germany-person": "Alexey Smirnov",
+  "contact-china-address": "Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road, Putuo District, Shanghai",
+  "contact-germany-address": "Im Pfarrweiher 14, 92637 Weiden i.d.OPf., Deutschland",
+  "contact-china-phone": "+86 187 2172 2664",
+  "contact-germany-phone": "+49 176 28201382",
+  "office-title": "Unsere Zentren in China und Deutschland",
+  "office-description": "Im PANZZi-Zentrum in Shanghai können Kunden Materialien vor Ort ansehen und beurteilen. In Deutschland begleitet unser Partner Alexey Smirnov die Projekte."
+});
+
+Object.assign(translations.zh, {
+  "hero-whatsapp-label": "WhatsApp · 中国",
+  "hero-whatsapp-href": "https://wa.me/8618721722664",
+  "contact-whatsapp-china": "WhatsApp · 中国",
+  "contact-whatsapp-germany": "WhatsApp · 德国",
+  "contact-center-china": "PANZZi 中国中心 · 上海",
+  "contact-center-germany": "PANZZi 德国合作伙伴 · 魏登",
+  "contact-germany-person": "Alexey Smirnov",
+  "contact-china-address": "上海市普陀区莫干山路50号M50创意园4号楼210-1室",
+  "contact-germany-address": "德国魏登 92637，Im Pfarrweiher 14",
+  "contact-china-phone": "+86 187 2172 2664",
+  "contact-germany-phone": "+49 176 28201382",
+  "office-title": "我们在中国和德国的服务中心",
+  "office-description": "客户可在上海 PANZZi 中心现场查看并评估材料。德国项目由我们的合作伙伴 Alexey Smirnov 负责对接。"
+});
+
 Object.assign(translations.en, {
   "hero-description": "Turnkey fit-out for restaurants, hotels, and villas",
   "hero-entry-note": "Project, restaurant, showroom, or bar",
@@ -1674,4 +1738,102 @@ Object.assign(translations.zh, {
   "china-entry-video-title": "PANZZi 中国业务启动介绍视频",
   "aria-scroll-content": "继续查看内容",
   "china-entry-route-label": "中国项目启动路径"
+});
+
+// Editorial refinement: natural business Chinese and consistent terminology.
+Object.assign(translations.zh, {
+  "write-us": "立即联系",
+  "service-lighting-desc": "适用于各类空间的专业照明设计方案",
+  "service-furniture-desc": "适用于商业与住宅空间的高品质人体工学家具",
+  "service-materials-desc": "高品质饰面及室内装饰材料",
+  "project-feature-handmade": "手工打造的设计师家具",
+  "project-feature-design": "设计师灯具",
+  "project-feature-fathom-furniture": "PANZZi 为用餐区及私享空间定制的家具",
+  "advantage-2": "欧洲级品质结合中国本地物流：距离更近、交付更快、成本更合理",
+  "advantage-9": "为重视美学、可靠性与专业方案的客户而打造",
+  "advantage-10": "为品牌声誉增值的专业配置",
+  "cta-desc": "提交您的需求，我们将为您的项目制定最合适的方案",
+  "cta-button": "洽谈项目",
+  "footer-about": "为餐厅、酒店和别墅提供一站式项目配置，并从中国严选优质产品进行专业供应。",
+  "nav-catalog": "产品目录",
+  "footer-for-clients": "客户合作",
+  "clients-page-title": "PANZZi - 客户合作",
+  "clients-title": "客户合作",
+  "clients-subtitle": "面向专业客户的专属合作条件与项目方案",
+  "clients-intro-1": "我们与私人客户及专业客户合作，包括设计师、餐饮经营者、开发商与投资人。",
+  "clients-intro-3": "如果您只需要餐具、照明或其他单一品类，我们也可以协助采购。",
+  "benefit-manager": "专属项目经理",
+  "benefit-catalog": "专享产品目录",
+  "office-title": "上海办公室",
+  "office-description": "欢迎希望实地查看、体验和评估产品，并与我们当面沟通的客户来到上海办公室。",
+  "catalog-subtitle": "为您的空间甄选家具与室内解决方案",
+  "service-china-entry": "中国项目落地",
+  "service-china-entry-desc": "为在中国开设餐厅、酒店或其他项目提供从手续办理、设计、施工到开业运营的全流程支持。",
+  "service-china-entry-button": "启动在华项目",
+  "service-china-entry-point-1": "手续办理",
+  "service-china-entry-point-2": "设计与审批",
+  "service-china-entry-point-3": "开业运营",
+  "map-title": "PANZZi 上海办公室位置",
+  "advantage-1-text": "我们与专业级制造商合作，而非大众市场供应商。",
+  "advantage-3-text": "概念、设计、采购、安装与交付均由我们统一管理。",
+  "hero-entry-step-2": "手续",
+  "china-entry-intro": "由一个团队统筹手续、审批、设计、施工及项目配置。",
+  "china-entry-cta": "洽谈在华项目",
+  "china-entry-overview-eyebrow": "在华项目落地路径",
+  "china-entry-overview-title": "全流程由我们统筹",
+  "china-entry-overview-text": "PANZZi 将法律筹备、审批、设计、项目配置及开业运营整合为一条清晰可控的落地路径。",
+  "china-entry-route-1": "构想",
+  "china-entry-route-2": "手续",
+  "china-entry-overview-1-text": "法律架构、公司注册、银行开户及基础税务规划。",
+  "china-entry-overview-2-text": "专业图纸、消防与卫生许可及机电设计文件。",
+  "china-entry-overview-3-text": "室内设计、承包商管理、材料、家具及 PANZZi 照明产品。",
+  "china-entry-overview-4-text": "餐饮概念、团队培训、运营标准、营业执照及开业后支持。",
+  "china-entry-roadmap-title": "项目启动路径",
+  "china-entry-stage-1-label": "筹备",
+  "china-entry-stage-1-item-1": "项目选址与物业条件分析",
+  "china-entry-stage-2-label": "审批",
+  "china-entry-stage-2-item-2": "用于政府报审的专业图纸",
+  "china-entry-stage-2-item-3": "消防设计方案与报审",
+  "china-entry-stage-2-item-6": "餐饮项目卫生许可证",
+  "china-entry-stage-3-item-2": "承包商筛选与施工监管",
+  "china-entry-stage-3-item-3": "由 PANZZi 供应家具、装饰、照明及材料",
+  "china-entry-stage-4-label": "开业",
+  "china-entry-stage-4-item-1": "基于上海餐饮实战经验的餐饮概念与菜单开发",
+  "china-entry-stage-4-item-3": "采用管理费模式的项目运营管理",
+  "china-entry-stage-4-item-4": "协助办理营业执照",
+  "china-entry-why-1-desc": "拥有在中国开设及运营项目的实战经验。",
+  "china-entry-why-2-desc": "高效推进许可证、图纸与审批，避免项目长期延误。",
+  "china-entry-why-3-title": "PANZZi 一站式配置体系",
+  "china-entry-why-4-desc": "提供咨询、项目管理或联合开发，并根据投资人的目标灵活定制。",
+  "catalog-intro-title": "PANZZi 产品选配与供应范围",
+  "catalog-intro-materials-desc": "饰面、表面材料及室内施工解决方案。",
+  "catalog-hero-subtitle": "为餐厅、酒店、别墅和商业空间精选家具、照明、餐具与室内装饰材料。",
+  "main-page-description": "PANZZi 依托 Anna Vei 二十年餐饮行业经验，从中国严选并供应高端家具、照明、餐具及室内装饰材料，为餐厅、酒店和别墅提供一站式整体配置。",
+  "catalog-page-description": "PANZZi 产品目录涵盖来自中国的高端家具、照明、餐具及室内装饰材料，适用于餐厅、酒店和别墅的一站式项目配置。",
+  "china-entry-page-description": "PANZZi 为餐厅、酒店及其他在华项目提供从手续办理、设计到施工、项目配置和开业运营的全流程支持。",
+  "contact-germany-address": "德国 92637 魏登，Im Pfarrweiher 14"
+});
+
+Object.assign(translations.ru, {
+  "office-title": "Офисы и партнёры PANZZi",
+  "office-description": "В Шанхае работает центр PANZZi для личных встреч и знакомства с материалами. В Германии проекты сопровождает наш партнёр Алексей Смирнов.",
+  "office-image-alt": "Офисы и партнёры PANZZi"
+});
+
+Object.assign(translations.en, {
+  "office-title": "PANZZi Offices and Partners",
+  "office-description": "The PANZZi center in Shanghai welcomes clients for in-person meetings and material reviews. In Germany, projects are supported by our partner Alexey Smirnov.",
+  "office-image-alt": "PANZZi offices and partners"
+});
+
+Object.assign(translations.de, {
+  "office-title": "PANZZi Standorte und Partner",
+  "office-description": "Das PANZZi-Zentrum in Shanghai empfängt Kunden zu persönlichen Gesprächen und Materialbemusterungen. In Deutschland begleitet unser Partner Alexey Smirnov die Projekte.",
+  "office-image-alt": "PANZZi Standorte und Partner"
+});
+
+Object.assign(translations.zh, {
+  "office-title": "PANZZi 服务中心与合作伙伴",
+  "office-description": "上海 PANZZi 中心可安排线下会面与材料选样；德国项目由我们的合作伙伴 Alexey Smirnov 负责对接。",
+  "office-image-alt": "PANZZi 服务中心与合作伙伴"
 });

@@ -61,19 +61,39 @@
       "url": "https://panzzi.com",
       "logo": "https://panzzi.com/content/LOGO/logo.png",
       "description": "Премиум мебель, освещение, посуда и материалы для интерьера из Китая. Оснащаем рестораны, отели, виллы под ключ.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road",
-        "addressLocality": "Shanghai",
-        "addressRegion": "Putuo District",
-        "addressCountry": "CN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-      "telephone": "+86 187 2172 2664",
-        "contactType": "customer service",
-        "availableLanguage": ["Russian", "English", "Chinese"]
-      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road",
+          "addressLocality": "Shanghai",
+          "addressRegion": "Putuo District",
+          "addressCountry": "CN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Im Pfarrweiher 14",
+          "postalCode": "92637",
+          "addressLocality": "Weiden in der Oberpfalz",
+          "addressCountry": "DE"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+86 187 2172 2664",
+          "contactType": "customer service",
+          "areaServed": "CN",
+          "availableLanguage": ["Russian", "English", "Chinese"]
+        },
+        {
+          "@type": "ContactPoint",
+          "name": "Smirnov Alexey",
+          "telephone": "+49 176 28201382",
+          "contactType": "customer service",
+          "areaServed": "DE",
+          "availableLanguage": ["Russian", "German"]
+        }
+      ],
       "sameAs": [
         "https://instagram.com/panzzi_furniture",
         "https://vk.com/club231583657",
@@ -98,7 +118,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style/style.css?v=20260610-3" />
+  <link rel="stylesheet" href="style/style.css?v=20260815-4" />
 </head>
 
 <body>
@@ -190,8 +210,8 @@
           </div>
         </div>
         <div class="hero-buttons">
-          <a href="https://wa.me/+8618721722664" class="btn"><i class="fab fa-whatsapp"></i>
-            <span data-translate="whatsapp">WhatsApp</span></a>
+          <a href="https://wa.me/4917628201382" data-translate-href="hero-whatsapp-href" class="btn"><i class="fab fa-whatsapp"></i>
+            <span data-translate="hero-whatsapp-label">WhatsApp · Германия</span></a>
           <a href="https://t.me/Panzzi_bot" class="btn btn-outline"><i class="fab fa-telegram"></i>
             <span data-translate="telegram">Telegram</span></a>
         </div>
@@ -713,8 +733,16 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-            <h3 class="contact-title" data-translate="whatsapp">WhatsApp</h3>
-            <a href="https://wa.me/+8618721722664" class="contact-link" data-translate="write-us">Написать</a>
+            <h3 class="contact-title" data-translate="contact-whatsapp-china">WhatsApp · Китай</h3>
+            <p class="contact-meta" data-translate="contact-china-phone">+86 187 2172 2664</p>
+            <a href="https://wa.me/8618721722664" class="contact-link" data-translate="write-us">Написать</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <h3 class="contact-title" data-translate="contact-whatsapp-germany">WhatsApp · Германия</h3>
+            <p class="contact-meta" data-translate="contact-germany-person">Smirnov Alexey</p>
+            <p class="contact-meta" data-translate="contact-germany-phone">+49 176 28201382</p>
+            <a href="https://wa.me/4917628201382" class="contact-link" data-translate="write-us">Написать</a>
           </div>
           <div class="contact-item">
             <div class="contact-icon"><i class="fab fa-telegram"></i></div>
@@ -797,12 +825,17 @@
 
         <div class="footer-contact">
           <h3 data-translate="footer-contacts">Контакты</h3>
-          <p>
-            <i class="fas fa-map-marker-alt"></i>
-            <span data-translate="footer-address">Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road, Putuo District,
-              Shanghai</span>
-          </p>
-          <p><i class="fas fa-phone-alt"></i>+86 187 2172 2664</p>
+          <div class="footer-center">
+            <strong data-translate="contact-center-china">Центр PANZZi · Китай, Шанхай</strong>
+            <p><i class="fas fa-map-marker-alt"></i><span data-translate="contact-china-address">Room 210-1, Building 4, M50 Creative Park, No. 50 Moganshan Road, Putuo District, Shanghai</span></p>
+            <p><i class="fas fa-phone-alt"></i><a href="tel:+8618721722664" data-translate="contact-china-phone">+86 187 2172 2664</a></p>
+          </div>
+          <div class="footer-center">
+            <strong data-translate="contact-center-germany">Партнёр PANZZi · Германия, Вайден</strong>
+            <p><i class="fas fa-map-marker-alt"></i><span data-translate="contact-germany-address">Im Pfarrweiher 14, 92637 Weiden i.d.OPf., Deutschland</span></p>
+            <p><i class="fas fa-user"></i><span data-translate="contact-germany-person">Smirnov Alexey</span></p>
+            <p><i class="fas fa-phone-alt"></i><a href="tel:+4917628201382" data-translate="contact-germany-phone">+49 176 28201382</a></p>
+          </div>
           <p><i class="fas fa-envelope"></i> panzzi@panzzi.com</p>
         </div>
       </div>
@@ -814,8 +847,8 @@
     </div>
   </footer>
   <script src="js/scripts.js?v=20260811-1" defer></script>
-  <script src="js/translations.js?v=20260811-1" defer></script>
-  <script src="js/translations_scripts.js?v=20260811-1" defer></script>
+  <script src="js/translations.js?v=20260815-4" defer></script>
+  <script src="js/translations_scripts.js?v=20260815-1" defer></script>
 </body>
 
 </html>

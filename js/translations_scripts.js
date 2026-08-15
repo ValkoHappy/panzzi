@@ -75,6 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    document.querySelectorAll("[data-translate-href]").forEach(function (element) {
+      const key = element.getAttribute("data-translate-href");
+      if (dictionary[key] || fallback[key]) {
+        element.setAttribute("href", dictionary[key] || fallback[key]);
+      }
+    });
+
     document.querySelectorAll("[data-translate-content]").forEach(function (element) {
       const key = element.getAttribute("data-translate-content");
       if (dictionary[key] || fallback[key]) {

@@ -1837,3 +1837,47 @@ Object.assign(translations.zh, {
   "office-description": "上海 PANZZi 中心可安排线下会面与材料选样；德国项目由我们的合作伙伴 Alexey Smirnov 负责对接。",
   "office-image-alt": "PANZZi 服务中心与合作伙伴"
 });
+
+Object.assign(translations.ru, {
+  "project-forest-pavilions": "Forest Pavilions",
+  "project-forest-credit-prefix": "Forest Pavilions от ",
+  "project-desc-forest-pavilions": " — модульная система деревянных домов, основанная на сетке 3×3 метра и способная адаптироваться к различным участкам и климатическим условиям. В систему входят три дома — Radix, Arborium и Integrum. Их можно комбинировать и расширять как архитектурный конструктор, чтобы дом рос по мере изменения потребностей владельца. Основу материального языка проекта образуют деревянные реечные фасады, а рисунок панелей задаёт выразительный визуальный ритм каждому фасаду.",
+  "project-forest-feature-furniture": "Эксклюзивная мебель по индивидуальному заказу",
+  "project-forest-feature-fitout": "Комплексная отделка интерьера и меблировка",
+  "project-forest-feature-facade": "Модульная система фасадов из деревянных реек",
+  "project-forest-feature-sourcing": "Поиск поставщиков и производство на китайских фабриках",
+  "project-forest-pavilions-alt": "Forest Pavilions — модульная система деревянных домов"
+});
+
+Object.assign(translations.en, {
+  "project-forest-pavilions": "Forest Pavilions",
+  "project-forest-credit-prefix": "Forest Pavilions by ",
+  "project-desc-forest-pavilions": " — a modular timber house system built on a 3×3 meter matrix, designed to adapt to different sites and climates. The system comprises three houses — Radix, Arborium, and Integrum — that can be combined and expanded like architectural building blocks, allowing the home to grow alongside its owner's needs. Timber slat facades form the primary material language, with panel patterns creating a distinctive visual rhythm across each elevation.",
+  "project-forest-feature-furniture": "Custom exclusive furniture",
+  "project-forest-feature-fitout": "Interior fit-out and furnishing",
+  "project-forest-feature-facade": "Modular timber facade system",
+  "project-forest-feature-sourcing": "Sourcing and production from Chinese manufacturers",
+  "project-forest-pavilions-alt": "Forest Pavilions modular timber house system"
+});
+
+Object.assign(translations.de, {
+  "project-forest-pavilions": "Forest Pavilions",
+  "project-forest-credit-prefix": "Forest Pavilions von ",
+  "project-desc-forest-pavilions": " — ein modulares Holzhaussystem auf Grundlage eines 3×3-Meter-Rasters, das sich an unterschiedliche Standorte und klimatische Bedingungen anpassen lässt. Das System umfasst drei Häuser — Radix, Arborium und Integrum. Sie können wie architektonische Bausteine kombiniert und erweitert werden, sodass das Haus mit den Bedürfnissen seines Eigentümers wächst. Fassaden aus Holzlamellen bilden die zentrale Materialsprache; unterschiedliche Paneelmuster verleihen jeder Gebäudeansicht einen unverwechselbaren Rhythmus.",
+  "project-forest-feature-furniture": "Exklusive Möbel nach Maß",
+  "project-forest-feature-fitout": "Innenausbau und Möblierung",
+  "project-forest-feature-facade": "Modulares Fassadensystem aus Holzlamellen",
+  "project-forest-feature-sourcing": "Beschaffung und Fertigung bei chinesischen Herstellern",
+  "project-forest-pavilions-alt": "Forest Pavilions — modulares Holzhaussystem"
+});
+
+Object.assign(translations.zh, {
+  "project-forest-pavilions": "Forest Pavilions",
+  "project-forest-credit-prefix": "Forest Pavilions 由 ",
+  "project-desc-forest-pavilions": " 设计。这是一套基于 3×3 米模数网格构建的模块化木结构住宅系统，可灵活适应不同场地与气候条件。系统包含 Radix、Arborium 和 Integrum 三种住宅类型，可像建筑积木一样自由组合与扩展，让住宅随业主需求的变化持续生长。木格栅立面构成项目的核心材料语言，不同的面板排列为各个立面赋予鲜明而独特的视觉节奏。",
+  "project-forest-feature-furniture": "专属定制家具",
+  "project-forest-feature-fitout": "室内精装与家具配置",
+  "project-forest-feature-facade": "模块化木质立面系统",
+  "project-forest-feature-sourcing": "中国优质制造商寻源与生产",
+  "project-forest-pavilions-alt": "Forest Pavilions 模块化木结构住宅系统"
+});

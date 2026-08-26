@@ -1,0 +1,98 @@
+.contacts-container > p {
+  max-width: 920px;
+  margin: 0 auto;
+  color: #56524a;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.contact-methods {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 34px auto 0;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 245px;
+  padding: 28px 24px;
+  border: 1px solid rgba(195, 167, 98, 0.16);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(31, 29, 24, 0.08);
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: rgba(195, 167, 98, 0.12);
+  font-size: 1.65rem;
+}
+
+.contact-title {
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.contact-meta {
+  margin: 1px 0;
+  color: #817b70;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.contact-link {
+  min-width: 142px;
+  margin-top: auto;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+/* Draw the marker in CSS so its appearance cannot depend on text encoding. */
+.reasons-list li::before {
+  content: "";
+  top: 0.38em;
+  width: 7px;
+  height: 13px;
+  border: solid var(--color-accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.cta-box::before {
+  pointer-events: none;
+}
+
+.cta-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .contact-methods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-item {
+    min-height: 220px;
+    padding: 24px 20px;
+  }
+}

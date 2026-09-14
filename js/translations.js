@@ -1588,8 +1588,8 @@ Object.assign(translations.zh, {
 });
 
 Object.assign(translations.ru, {
-  "hero-whatsapp-label": "WhatsApp · Германия",
-  "hero-whatsapp-href": "https://wa.me/4917628201382",
+  "hero-whatsapp-label": "WhatsApp · Китай",
+  "hero-whatsapp-href": "https://wa.me/8618721722664",
   "contact-whatsapp-china": "WhatsApp · Китай",
   "contact-whatsapp-germany": "WhatsApp · Германия",
   "contact-center-china": "Центр PANZZi · Китай, Шанхай",

@@ -4,3 +4,13 @@ Thumbs.db
 node_modules/
 .vscode/
 .idea/
+
+# Local development tools and browser sessions
+.claude/
+.codex/
+.codex-logs/
+.codex-temp/
+.playwright-mcp/
+.chrome-codex-profile/
+.serena/
+.codex-*.png

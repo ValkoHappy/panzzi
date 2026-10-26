@@ -19,20 +19,21 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       localStorage.setItem("preferredLanguage", language);
     } catch (error) {
-      // Language still changes for the current page if storage is unavailable.
     }
   }
 
   const initialLanguage = window.__panzziInitialLanguage;
   const savedLanguage = readSavedLanguage();
-  const browserLanguage = (navigator.language || "ru").slice(0, 2).toLowerCase();
+  const browserLanguage = (navigator.language || "ru")
+    .slice(0, 2)
+    .toLowerCase();
   let currentLanguage = languages.includes(initialLanguage)
     ? initialLanguage
     : languages.includes(savedLanguage)
-    ? savedLanguage
-    : languages.includes(browserLanguage)
-      ? browserLanguage
-      : "ru";
+      ? savedLanguage
+      : languages.includes(browserLanguage)
+        ? browserLanguage
+        : "ru";
 
   const selector = document.getElementById("language-selector");
   const languageButton = document.getElementById("language-toggle");
@@ -54,40 +55,50 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    document.querySelectorAll("[data-translate-alt]").forEach(function (element) {
-      const key = element.getAttribute("data-translate-alt");
-      if (dictionary[key] || fallback[key]) {
-        element.setAttribute("alt", dictionary[key] || fallback[key]);
-      }
-    });
+    document
+      .querySelectorAll("[data-translate-alt]")
+      .forEach(function (element) {
+        const key = element.getAttribute("data-translate-alt");
+        if (dictionary[key] || fallback[key]) {
+          element.setAttribute("alt", dictionary[key] || fallback[key]);
+        }
+      });
 
-    document.querySelectorAll("[data-translate-aria-label]").forEach(function (element) {
-      const key = element.getAttribute("data-translate-aria-label");
-      if (dictionary[key] || fallback[key]) {
-        element.setAttribute("aria-label", dictionary[key] || fallback[key]);
-      }
-    });
+    document
+      .querySelectorAll("[data-translate-aria-label]")
+      .forEach(function (element) {
+        const key = element.getAttribute("data-translate-aria-label");
+        if (dictionary[key] || fallback[key]) {
+          element.setAttribute("aria-label", dictionary[key] || fallback[key]);
+        }
+      });
 
-    document.querySelectorAll("[data-translate-title]").forEach(function (element) {
-      const key = element.getAttribute("data-translate-title");
-      if (dictionary[key] || fallback[key]) {
-        element.setAttribute("title", dictionary[key] || fallback[key]);
-      }
-    });
+    document
+      .querySelectorAll("[data-translate-title]")
+      .forEach(function (element) {
+        const key = element.getAttribute("data-translate-title");
+        if (dictionary[key] || fallback[key]) {
+          element.setAttribute("title", dictionary[key] || fallback[key]);
+        }
+      });
 
-    document.querySelectorAll("[data-translate-href]").forEach(function (element) {
-      const key = element.getAttribute("data-translate-href");
-      if (dictionary[key] || fallback[key]) {
-        element.setAttribute("href", dictionary[key] || fallback[key]);
-      }
-    });
+    document
+      .querySelectorAll("[data-translate-href]")
+      .forEach(function (element) {
+        const key = element.getAttribute("data-translate-href");
+        if (dictionary[key] || fallback[key]) {
+          element.setAttribute("href", dictionary[key] || fallback[key]);
+        }
+      });
 
-    document.querySelectorAll("[data-translate-content]").forEach(function (element) {
-      const key = element.getAttribute("data-translate-content");
-      if (dictionary[key] || fallback[key]) {
-        element.setAttribute("content", dictionary[key] || fallback[key]);
-      }
-    });
+    document
+      .querySelectorAll("[data-translate-content]")
+      .forEach(function (element) {
+        const key = element.getAttribute("data-translate-content");
+        if (dictionary[key] || fallback[key]) {
+          element.setAttribute("content", dictionary[key] || fallback[key]);
+        }
+      });
 
     const translatedTitle = document.querySelector("title[data-translate]");
     if (translatedTitle) {
@@ -99,7 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.documentElement.lang = language === "zh" ? "zh-CN" : language;
 
-    const openGraphLocale = document.querySelector('meta[property="og:locale"]');
+    const openGraphLocale = document.querySelector(
+      'meta[property="og:locale"]',
+    );
     if (openGraphLocale) {
       const locales = { ru: "ru_RU", en: "en_US", de: "de_DE", zh: "zh_CN" };
       openGraphLocale.setAttribute("content", locales[language] || locales.ru);

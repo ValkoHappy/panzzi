@@ -10,7 +10,9 @@
   }
 
   const savedLanguage = readSavedLanguage();
-  const browserLanguage = (navigator.language || "ru").slice(0, 2).toLowerCase();
+  const browserLanguage = (navigator.language || "ru")
+    .slice(0, 2)
+    .toLowerCase();
   const language = supportedLanguages.includes(savedLanguage)
     ? savedLanguage
     : supportedLanguages.includes(browserLanguage)
